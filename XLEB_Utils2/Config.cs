@@ -50,12 +50,6 @@ namespace XLEB_Utils2
         [Description("Включить мигание света при начале боеголовки?")]
         public bool WarheadFlickerLightEnable { get; set; } = true;
 
-        [Description("Надпись при начале боеголовки")]
-        public string TextOnBlackoutStart { get; set; } = "Повреждение центрального энергоузла!";
-
-        [Description("Надпись при окончании боеголовки")]
-        public string TextOnBlackoutEnd { get; set; } = "Восстановление центрального энергоузла!";
-
         [Description("Время блекаута")]
         public float BlackoutTime { get; set; } = 4f;
 

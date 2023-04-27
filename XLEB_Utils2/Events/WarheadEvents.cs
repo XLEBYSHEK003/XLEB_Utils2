@@ -23,7 +23,7 @@ namespace XLEB_Utils2.Events
         public void OnWarheadStopping(StoppingEventArgs ev) 
         {
             ClearWarheadCoroutines();
-            Map.ShowHint("\n\n\n\n" + _plugin.Config.TextOnBlackoutEnd);
+            Map.ShowHint("\n\n\n\n" + _plugin.Translation.TextOnBlackoutEnd);
         }
 
         public void OnWarheadDetonated() 
@@ -43,7 +43,7 @@ namespace XLEB_Utils2.Events
 
         public IEnumerator<float> WarheadBlackout() 
         {
-            Map.ShowHint("\n\n\n\n" + _plugin.Config.TextOnBlackoutStart);
+            Map.ShowHint("\n\n\n\n" + _plugin.Translation.TextOnBlackoutStart);
 
             for (; ;)
             {
