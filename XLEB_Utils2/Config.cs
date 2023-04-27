@@ -44,9 +44,6 @@ namespace XLEB_Utils2
             "<color=lime>Донат от 50 рублей!</color>"
         };
 
-        [Description("Время повтора автоматических надписей")]
-        public float ServerMessageReTime { get; set; } = 180f;
-
         [Description("Включить мигание света при начале боеголовки?")]
         public bool WarheadFlickerLightEnable { get; set; } = true;
 
@@ -61,6 +58,9 @@ namespace XLEB_Utils2
 
         [Description("Время до возвращения блекаута")]
         public float BlackoutComeback { get; set; } = 7f;
+
+        [Description("Время повтора автоматических надписей")]
+        public float ServerMessageReTime { get; set; } = 180f;
 
         [Description("Время до очистки карты от трупов:")]
         public float CleanRagdollTime { get; set; } = 460f;
