@@ -28,5 +28,8 @@ namespace XLEB_Utils2
 
         [Description("Надпись при автоматическом старте боеголовки")]
         public string MessageAutoNuke { get; set; } = "<color=red>Ликвидация комплекса неизбежна!</color>";
+
+        [Description("Надпись при переспавне людей, если включён фикс спавна")]
+        public string MessageWhenFixRespawn { get; set; } = "Все были переспавнены, для избежания проблем со спавном";
     }
 }

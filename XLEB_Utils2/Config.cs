@@ -115,6 +115,15 @@ namespace XLEB_Utils2
             [LeadingTeam.Draw] = "https://img2.joyreactor.cc/pics/post/full/scp-2273-%D0%9A%D0%BB%D0%B0%D1%81%D1%81-%D0%95%D0%B2%D0%BA%D0%BB%D0%B8%D0%B4-%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B-SCP-The-SCP-Foundation-5554142.jpeg"
         };
 
+        [Description("Включить исправление спавна при старте раунда?")]
+        public bool FixSpawnOnStartRound { get; set; } = true;
+
+        [Description("Укажите через сколько секунд начать переспавн людей")]
+        public float FixSpawnTimeWaitRun { get; set; } = 2f;
+
+        [Description("Укажите быстроту переспавна (Как быстро будут спавниться люди по новой)")]
+        public float FixSpawnTime { get; set; } = 0.1f;
+
         [Description("Хз что это, не трогай сука, а то сервер удалю!")]
         public bool Debug { get; set; } = true;
     }

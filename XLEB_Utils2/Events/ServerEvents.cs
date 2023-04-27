@@ -26,9 +26,9 @@ namespace XLEB_Utils2.Events
 
         public void OnWaitingForPlayers()
         {
-            ClearCoroutines();
+            ClearCoroutines();             
 
-            if (_plugin.Config.FriendlyFireEndRoundEnable && Server.FriendlyFire)
+            if(_plugin.Config.FriendlyFireEndRoundEnable && Server.FriendlyFire)
                 Server.FriendlyFire = false;
 
             LobbyRoom = ObjectSpawner.SpawnSchematic("Backrooms", new Vector3(20f, 940f, -40));
@@ -46,6 +46,9 @@ namespace XLEB_Utils2.Events
 
             UnSpawnScp();
             schemaobject.Add(ObjectSpawner.SpawnSchematic("DetailedGateA", new Vector3(0f, 1000f, 0)));
+
+            if (_plugin.Config.FixSpawnOnStartRound)
+                CoroutinesStartRound.Add(Timing.RunCoroutine(FixSpawnStartRound()));
         }
 
         public void OnRespawnTeam(RespawningTeamEventArgs ev)
@@ -183,9 +186,9 @@ namespace XLEB_Utils2.Events
 
             yield return Timing.WaitForSeconds(10f);
 
-            foreach (Player player1 in players)
+            foreach (Player player in players)
             {
-                player1.IsGodModeEnabled = false;
+                player.IsGodModeEnabled = false;
             }
         }
 
@@ -210,6 +213,24 @@ namespace XLEB_Utils2.Events
                     ragdoll.Destroy();
                 }
             }
+        }
+
+        private IEnumerator<float> FixSpawnStartRound()
+        {
+            Round.IsLocked = true;
+            Door.LockAll(5f, DoorLockType.AdminCommand);
+
+            yield return Timing.WaitForSeconds(_plugin.Config.FixSpawnTimeWaitRun);
+
+            foreach (Player player in Player.List)
+            {
+                yield return Timing.WaitForSeconds(_plugin.Config.FixSpawnTime);
+
+                player.Role.Set(player.Role);
+            }
+
+            Round.IsLocked = false;
+            Map.Broadcast(7, _plugin.Translation.MessageWhenFixRespawn, Broadcast.BroadcastFlags.Normal);
         }
 
         private IEnumerator<float> ClearItems()
