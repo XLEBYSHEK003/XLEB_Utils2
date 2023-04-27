@@ -61,7 +61,6 @@ namespace XLEB_Utils2
 
         [Description("Время до возвращения блекаута")]
         public float BlackoutComeback { get; set; } = 7f;
-
         [Description("Время до очистки карты от трупов:")]
         public float CleanRagdollTime { get; set; } = 460f;
 
