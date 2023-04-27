@@ -11,15 +11,18 @@ namespace XLEB_Utils2.Webhook
         {
             var message = new
             {
-              //  avatar_url = avatarurl,
-                embeds = new[] {
-                new {
-                    color = 0x00ff00,
-                    title = title,
-                    description = content,
-                    image = new {
-                            url = imageurl}
-                }}
+                //  avatar_url = avatarurl,
+                embeds = new[] 
+                { 
+                    new 
+                    {
+                        color = 0x00ff00,
+                        title = title,
+                        description = content,
+                        image = new {
+                        url = imageurl}
+                    }
+                }
             };
 
             var client = new HttpClient();

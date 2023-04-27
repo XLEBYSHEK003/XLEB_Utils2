@@ -11,19 +11,15 @@ using UnityEngine;
 namespace XLEB_Utils2.Commands
 {
     [CommandHandler(typeof(ClientCommandHandler))]
-    public class Rocket : ParentCommand
+    public class Rocket : ICommand
     {
-        public Rocket() => LoadGeneratedCommands();
+        public string Command { get; } = "rocket";
 
-        public override string Command { get; } = "rocket";
+        public string[] Aliases { get; }
 
-        public override string[] Aliases { get; } = new string[] { };
+        public string Description { get; } = "Отправляет игроков высоко в небо и взрывает их";
 
-        public override string Description { get; } = "Отправляет игроков высоко в небо и взрывает их";
-
-        public override void LoadGeneratedCommands() { }
-
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!((CommandSender)sender).CheckPermission("rocket.xleb"))
             {

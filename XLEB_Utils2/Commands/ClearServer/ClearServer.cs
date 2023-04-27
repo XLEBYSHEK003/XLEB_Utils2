@@ -8,21 +8,21 @@ namespace XLEB_Utils2.Commands
 {
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
     [CommandHandler(typeof(GameConsoleCommandHandler))]
-    public class ClearServer : ParentCommand
+    public class ClearServer : ICommand
     {
         private readonly Plugin _plugin;
         public ClearServer(Plugin plugin) => _plugin = plugin;
         public ClearServer() => LoadGeneratedCommands();
 
-        public override string Command { get; } = "clearserver";
+        public string Command { get; } = "clearserver";
 
-        public override string[] Aliases { get; } = new string[] { "cs" };
+        public string[] Aliases { get; } = new string[] { "cs" };
 
-        public override string Description { get; } = "Запрещает или разрешает очистку карты";
+        public string Description { get; } = "Запрещает или разрешает очистку карты";
 
-        public override void LoadGeneratedCommands() { }
+        public void LoadGeneratedCommands() { }
 
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!((CommandSender)sender).CheckPermission("eventolog.tools"))
             {

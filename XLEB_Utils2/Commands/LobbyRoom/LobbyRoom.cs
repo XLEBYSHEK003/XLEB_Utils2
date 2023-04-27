@@ -3,8 +3,6 @@ using Exiled.API.Features;
 using Exiled.Permissions.Extensions;
 using MapEditorReborn.API.Features;
 using MapEditorReborn.API.Features.Objects;
-using Mirror;
-using PlayerRoles;
 using System;
 using UnityEngine;
 
@@ -13,20 +11,19 @@ namespace XLEB_Utils2.Commands
 {
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
     [CommandHandler(typeof(GameConsoleCommandHandler))]
-    public class LobbyRoom : ParentCommand
+    public class LobbyRoom : ICommand
     {
         private SchematicObject LobbyBackroom;
-        public LobbyRoom() => LoadGeneratedCommands();
 
-        public override string Command { get; } = "lobbyroom";
+        public string Command { get; } = "lobbyroom";
 
-        public override string[] Aliases { get; } = new string[] { "lb" };
+        public string[] Aliases { get; } = new string[] { "lb" };
 
-        public override string Description { get; } = "Создаёт/удаляет лобби при ожидании";
+        public string Description { get; } = "Создаёт/удаляет лобби при ожидании";
 
-        public override void LoadGeneratedCommands() { }
+        public void LoadGeneratedCommands() { }
 
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!((CommandSender)sender).CheckPermission("room.xleb"))
             {

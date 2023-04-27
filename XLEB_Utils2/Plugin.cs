@@ -58,7 +58,6 @@ namespace XLEB_Utils2
             Server.RoundStarted += ServerEvents.OnRoundStart;
             Server.RespawningTeam += ServerEvents.OnRespawnTeam;
             Server.RoundEnded += ServerEvents.OnRoundEnded;
-            //Server.RoundEnded += ServerEvents.OnRoundEnded;
 
             Scp096.AddingTarget += PlayerEvents.OnSCP095AddTarget;
             Player.UsingRadioBattery += PlayerEvents.OnUsingBattery;

@@ -1,25 +1,20 @@
 ﻿using CommandSystem;
 using Exiled.API.Features;
-using Exiled.Permissions.Extensions;
 using System;
 using PlayerRoles;
 
 namespace XLEB_Utils2.Commands
 {
     [CommandHandler(typeof(ClientCommandHandler))]
-    public class Helpme : ParentCommand
+    public class Helpme : ICommand
     {
-        public Helpme() => LoadGeneratedCommands();
+        public string Command { get; } = "helpme";
 
-        public override string Command { get; } = "helpme";
+        public string[] Aliases { get; }
 
-        public override string[] Aliases { get; } = new string[] { };
+        public string Description { get; } = "Чинит спавн";
 
-        public override string Description { get; } = "Чинит спавн";
-
-        public override void LoadGeneratedCommands() { }
-
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             Player pl = Player.Get(sender);
             if (Round.ElapsedTime.TotalSeconds< 20)

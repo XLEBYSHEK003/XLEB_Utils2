@@ -1,8 +1,6 @@
 ﻿using Exiled.API.Features;
 using HarmonyLib;
 using RemoteAdmin;
-using Player = Exiled.API.Features.Player;
-using Server = Exiled.API.Features.Server;
 
 namespace XLEB_Utils2.Patches
 {

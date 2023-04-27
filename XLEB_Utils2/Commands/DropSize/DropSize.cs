@@ -1,31 +1,25 @@
 ﻿using CommandSystem;
 using Exiled.API.Features;
 using Exiled.Permissions.Extensions;
-using Mirror;
 using System;
 using UnityEngine;
 
 namespace XLEB_Utils2.Commands
 {
-    using Exiled.API.Features.Items;
     using Exiled.API.Features.Pickups;
     using PlayerRoles;
 
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
     [CommandHandler(typeof(GameConsoleCommandHandler))]
-    public class DropSize : ParentCommand
+    public class DropSize : ICommand
     {
-        public DropSize() => LoadGeneratedCommands();
+        public string Command { get; } = "dropsize";
 
-        public override string Command { get; } = "dropsize";
+        public string[] Aliases { get; } = new string[] { "drops" };
 
-        public override string[] Aliases { get; } = new string[] { "drops" };
+        public string Description { get; } = "Выбрасывает предмет нужного размера!";
 
-        public override string Description { get; } = "Выбрасывает предмет нужного размера!";
-
-        public override void LoadGeneratedCommands() { }
-
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!((CommandSender)sender).CheckPermission("fx.size"))
             {

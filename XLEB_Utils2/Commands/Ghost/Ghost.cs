@@ -2,25 +2,20 @@
 using Exiled.API.Features;
 using Exiled.Permissions.Extensions;
 using System;
-using PlayerRoles;
 using CustomPlayerEffects;
 
 namespace XLEB_Utils2.Commands
 {
     [CommandHandler(typeof(ClientCommandHandler))]
-    public class Ghost : ParentCommand
+    public class Ghost : ICommand
     {
-        public Ghost() => LoadGeneratedCommands();
+        public string Command { get; } = "ghost";
 
-        public override string Command { get; } = "ghost";
+        public string[] Aliases { get; }
 
-        public override string[] Aliases { get; } = new string[] { };
+        public string Description { get; } = "Делает тебя невидимым";
 
-        public override string Description { get; } = "Делает тебя невидимым";
-
-        public override void LoadGeneratedCommands() { }
-
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!((CommandSender)sender).CheckPermission("ghost.xleb"))
             {

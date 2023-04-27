@@ -1,6 +1,5 @@
 ﻿using CommandSystem;
 using Exiled.API.Features;
-using Exiled.Permissions.Extensions;
 using System;
 using PlayerRoles;
 
@@ -8,19 +7,15 @@ namespace XLEB_Utils2.Commands
 {
 
     [CommandHandler(typeof(ClientCommandHandler))]
-    public class Kill : ParentCommand
+    public class Kill : ICommand
     {
-        public Kill() => LoadGeneratedCommands();
+        public string Command { get; } = "kill";
 
-        public override string Command { get; } = "kill";
+        public string[] Aliases { get; }
 
-        public override string[] Aliases { get; } = new string[] { };
+        public string Description { get; } = "Убивает тебя";
 
-        public override string Description { get; } = "Убивает тебя";
-
-        public override void LoadGeneratedCommands() { }
-
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             Player pl = Player.Get(sender);
 

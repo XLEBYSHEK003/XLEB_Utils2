@@ -2,27 +2,22 @@
 using Exiled.API.Features;
 using Exiled.Permissions.Extensions;
 using System;
-using PlayerRoles;
-using InventorySystem.Items.ThrowableProjectiles;
 using Exiled.API.Features.Items;
 
 namespace XLEB_Utils2.Commands
 {
 
     [CommandHandler(typeof(ClientCommandHandler))]
-    public class Ball : ParentCommand
+    public class Ball : ICommand
     {
-        public Ball() => LoadGeneratedCommands();
 
-        public override string Command { get; } = "ball";
+        public string Command { get; } = "ball";
 
-        public override string[] Aliases { get; } = new string[] { };
+        public string[] Aliases { get; }
 
-        public override string Description { get; } = "Спавнит мячик возле игрока.";
+        public string Description { get; } = "Спавнит мячик возле игрока.";
 
-        public override void LoadGeneratedCommands() { }
-
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!((CommandSender)sender).CheckPermission("ball.xleb"))
             {
@@ -44,8 +39,6 @@ namespace XLEB_Utils2.Commands
                 response = "Был заспавнен мячик";
                 return true;
             }
-            response = "Был заспавнен мячик";
-            return true;
         }
     }
 }

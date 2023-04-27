@@ -1,30 +1,23 @@
 ﻿using CommandSystem;
 using Exiled.API.Features;
-using Exiled.Permissions.Extensions;
 using System;
 
 namespace XLEB_Utils2.Commands
 {
 
     [CommandHandler(typeof(ClientCommandHandler))]
-    public class TPS : ParentCommand
+    public class TPS : ICommand
     {
-        public TPS() => LoadGeneratedCommands();
+        public string Command { get; } = "tps";
 
-        public override string Command { get; } = "tps";
+        public string[] Aliases { get; }
 
-        public override string[] Aliases { get; } = new string[] { };
+        public string Description { get; } = "Показывает текущий TPS";
 
-        public override string Description { get; } = "Показывает текущий TPS";
-
-        public override void LoadGeneratedCommands() { }
-
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-
             response = $"Текущий TPS {(int)Server.Tps}";
             return true;
-
         }
     }
 }

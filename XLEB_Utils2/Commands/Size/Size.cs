@@ -3,26 +3,21 @@ using Exiled.API.Features;
 using Exiled.Permissions.Extensions;
 using System;
 using PlayerRoles;
-using XLEB_Utils2.Events;
 using UnityEngine;
 
 namespace XLEB_Utils2.Commands
 {
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
     [CommandHandler(typeof(GameConsoleCommandHandler))]
-    public class Size : ParentCommand
+    public class Size : ICommand
     {
-        public Size() => LoadGeneratedCommands();
+        public string Command { get; } = "size";
 
-        public override string Command { get; } = "size";
+        public string[] Aliases { get; }
 
-        public override string[] Aliases { get; } = new string[] { };
+        public string Description { get; } = "Устанавливает размер модели игрока";
 
-        public override string Description { get; } = "Устанавливает размер модели игрока";
-
-        public override void LoadGeneratedCommands() { }
-
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
+        public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!((CommandSender)sender).CheckPermission("size.xleb"))
             {
