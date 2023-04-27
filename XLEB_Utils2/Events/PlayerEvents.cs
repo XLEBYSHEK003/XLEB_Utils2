@@ -29,7 +29,7 @@ namespace XLEB_Utils2.Events
             if (ev.Player != null && _plugin.Config.AntiCuffHurtOn && ev.Player.IsCuffed && ev.Attacker != null && ev.Attacker.Role.Team != Team.SCPs)
             {
                 ev.IsAllowed = false;
-                ev.Attacker.ShowHint(_plugin.Config.MessageForAttacker, 2f);
+                ev.Attacker.ShowHint(_plugin.Translation.MessageForAttacker, 2f);
             }
         }
 
@@ -50,7 +50,7 @@ namespace XLEB_Utils2.Events
 
         public void OnSCP095AddTarget(AddingTargetEventArgs ev) 
         {
-            ev.Target.ShowHint(_plugin.Config.AddingTarget096);
+            ev.Target.ShowHint(_plugin.Translation.AddingTarget096);
         }
 
         public void OnEatingCandy(EatingScp330EventArgs ev) 
@@ -62,7 +62,7 @@ namespace XLEB_Utils2.Events
         public void OnDied(DiedEventArgs ev) 
         {
             if (ev.Attacker != null) 
-                ev.Attacker.ShowHint(_plugin.Config.KillMessage.Replace("%PlayerName%", ev.Player.Nickname), 2f);  
+                ev.Attacker.ShowHint(_plugin.Translation.KillMessage.Replace("%PlayerName%", ev.Player.Nickname), 2f);  
         }
     }
 }

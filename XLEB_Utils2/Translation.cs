@@ -13,5 +13,20 @@ namespace XLEB_Utils2
 
         [Description("Надпись при окончании боеголовки")]
         public string TextOnBlackoutEnd { get; set; } = "Восстановление центрального энергоузла!";
+
+        [Description("Сообщение при очистке карты от предметов")]
+        public string MessageWhenClean { get; set; } = "Молекулярное расщепление предметов";
+
+        [Description("Сообщение игроку, который атакует связанного")]
+        public string MessageForAttacker { get; set; } = "Связанных нельзя убивать!";
+
+        [Description("Сообщение игроку при агре скромника")]
+        public string AddingTarget096 { get; set; } = "<color=red>Вы цель SCP - 096!</color>";
+
+        [Description("Оповещение о совершении кила. (Форма: Сообщение + ник)")]
+        public string KillMessage { get; set; } = "<color=yellow>Вы убили: %PlayerName%</color> ";
+
+        [Description("Надпись при автоматическом старте боеголовки")]
+        public string MessageAutoNuke { get; set; } = "<color=red>Ликвидация комплекса неизбежна!</color>";
     }
 }

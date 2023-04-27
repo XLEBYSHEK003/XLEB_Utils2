@@ -171,7 +171,7 @@ namespace XLEB_Utils2.Events
                 Warhead.Start();
             
             Warhead.IsLocked = true;
-            Map.Broadcast(6, _plugin.Config.MessageAutoNuke); 
+            Map.Broadcast(6, _plugin.Translation.MessageAutoNuke); 
         }
 
         private IEnumerator<float> SpawnProtect(List<Player> players)
@@ -217,7 +217,7 @@ namespace XLEB_Utils2.Events
             for (; ; )
             {
                 yield return Timing.WaitForSeconds(_plugin.Config.CleanItemsTime);
-                Map.Broadcast(5, _plugin.Config.MessageWhenClean);
+                Map.Broadcast(5, _plugin.Translation.MessageWhenClean);
                 foreach (Pickup item in Pickup.List)
                 {
                    if (!_plugin.Config.NotClearItems.Contains(item.Info.ItemId))

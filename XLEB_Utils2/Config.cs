@@ -19,25 +19,13 @@ namespace XLEB_Utils2
         [Description("Отключить урон для связанного человека, кроме урона от SCP?")]
         public bool AntiCuffHurtOn { get; set; } = false;
 
-        [Description("Сообщение игроку, который атакует связанного")]
-        public string MessageForAttacker { get; set; } = "Связанных нельзя убивать!";
-
-        [Description("Сообщение игроку при агре скромника")]
-        public string AddingTarget096 { get; set; } = "<color=red>Вы цель SCP - 096!</color>";
-
-        [Description("Оповещение о совершении кила. (Форма: Сообщение + ник)")]
-        public string KillMessage { get; set; } = "<color=yellow>Вы убили: %PlayerName%</color> ";
-
         [Description("Время до автоматического старта боеголовки")]
         public float AutoNukeTime { get; set; } = 1200f;
-
-        [Description("Надпись при автоматической старте боеголовки")]
-        public string MessageAutoNuke { get; set; } = "<color=red>Ликвидация комплекса неизбежна!</color>";
 
         [Description("Сделать бесконечное радио?")]
         public bool UnlimitedBattery { get; set; } = true;
 
-        [Description("Автоматическая надпись:")]
+        [Description("Автоматические надписи:")]
         public List<string> ServerMessage { get; set; } = new List<string>
         {
             "<color=#27EC63>Заходи к нам в</color> <color=#31BEF2>Discord</color>",
@@ -55,14 +43,12 @@ namespace XLEB_Utils2
 
         [Description("Время до возвращения блекаута")]
         public float BlackoutComeback { get; set; } = 7f;
+
         [Description("Время до очистки карты от трупов:")]
         public float CleanRagdollTime { get; set; } = 460f;
 
         [Description("Время до очистки карты от предметов:")]
         public float CleanItemsTime { get; set; } = 600f;
-
-        [Description("Время до очистки карты от предметов:")]
-        public string MessageWhenClean { get; set; } = "Молекулярное расщепление предметов";
 
         [Description("Список запрещённых к очистке предметов")]
         public List<ItemType> NotClearItems { get; set; } = new List<ItemType>
@@ -130,8 +116,6 @@ namespace XLEB_Utils2
             [LeadingTeam.FacilityForces] = "https://i.ytimg.com/vi/M5xD4pnavtg/maxresdefault.jpg",
             [LeadingTeam.Draw] = "https://img2.joyreactor.cc/pics/post/full/scp-2273-%D0%9A%D0%BB%D0%B0%D1%81%D1%81-%D0%95%D0%B2%D0%BA%D0%BB%D0%B8%D0%B4-%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B-SCP-The-SCP-Foundation-5554142.jpeg"
         };
-        /*[Description("Банить донатеров за агр скромника в ноклипе?")]
-        public bool BanOnAgrScp096InNoclip { get; set; } = true*/
 
         [Description("Хз что это, не трогай сука, а то сервер удалю!")]
         public bool Debug { get; set; } = true;
