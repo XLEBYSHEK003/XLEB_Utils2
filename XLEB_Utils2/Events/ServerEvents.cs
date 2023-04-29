@@ -31,22 +31,23 @@ namespace XLEB_Utils2.Events
             if(_plugin.Config.FriendlyFireEndRoundEnable && Server.FriendlyFire)
                 Server.FriendlyFire = false;
 
-            LobbyRoom = ObjectSpawner.SpawnSchematic("Backrooms", new Vector3(20f, 940f, -40));
+            if(_plugin.Config.LobbyBuilding.SchematicName != "0001")
+                LobbyRoom = ObjectSpawner.SpawnSchematic(_plugin.Config.LobbyBuilding.SchematicName, new Vector3(_plugin.Config.LobbyBuilding.x, _plugin.Config.LobbyBuilding.y, _plugin.Config.LobbyBuilding.z));
         }
 
         public void OnRoundStart()
-        { 
-            if(_plugin.Config.PublicLogWebhookEnable)
-                Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Начался новый раунд!\nВ раунде {Player.List.Count()} игроков.\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageStartRoundWebhook.RandomItem());
-
+        {
             ClearCoroutines();
-            Map.ShowHint("<color=#3AD9AE>При некорректном спавне, введите в консоль на Ё .helpme</color>", 12f);
             StartCoroutines();
             LobbyRoom.Destroy();
-
             UnSpawnScp();
-            schemaobject.Add(ObjectSpawner.SpawnSchematic("DetailedGateA", new Vector3(0f, 1000f, 0)));
 
+            if (_plugin.Config.PublicLogWebhookEnable)
+                Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Начался новый раунд!\nВ раунде {Player.List.Count()} игроков.\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageStartRoundWebhook.RandomItem());
+
+            if (_plugin.Config.SchematicList.Count > 0)
+                SpawnBuildings();
+           
             if (_plugin.Config.FixSpawnOnStartRound)
                 CoroutinesStartRound.Add(Timing.RunCoroutine(FixSpawnStartRound()));
         }
@@ -98,6 +99,14 @@ namespace XLEB_Utils2.Events
             {
                 return "Неизвестная команда";
             }
+        }
+
+        public void SpawnBuildings() 
+        {
+            foreach (SchematicClass schematic in _plugin.Config.SchematicList) 
+            {
+                schemaobject.Add(ObjectSpawner.SpawnSchematic(schematic.SchematicName, new Vector3(schematic.x, schematic.y, schematic.z)));
+            }   
         }
 
         public void DestroyAllBuildings() 

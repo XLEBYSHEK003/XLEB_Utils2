@@ -87,7 +87,6 @@ C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.c
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Assembly-CSharp-Publicized.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\XPSystem.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\XPSystem.pdb
-C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Newtonsoft.Json.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\bin\Debug\XLEB_Utils2.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\bin\Debug\XLEB_Utils2.pdb
 C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\bin\Debug\Unity.Timeline.dll

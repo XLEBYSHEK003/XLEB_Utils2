@@ -124,6 +124,15 @@ namespace XLEB_Utils2
         [Description("Укажите быстроту переспавна (Как быстро будут спавниться люди по новой)")]
         public float FixSpawnTime { get; set; } = 0.1f;
 
+        [Description("Если у вас есть построка для лобби, то заполните поля")]
+        public SchematicClass LobbyBuilding { get; set; } = new SchematicClass { SchematicName = "0001", x = 20f, y = 940f, z = -40f };
+
+        [Description("Постройки")]
+        public List<SchematicClass> SchematicList { get; set; } = new List<SchematicClass>()
+        {
+            {new SchematicClass { SchematicName = "DetailedGateA", x = 0f, y = 1000f, z = 0f } }
+        };
+
         [Description("Через сколько секунд проверять здоровье плагина?")]
         public float CallDelayCheckPluginHealth { get; set; } = 350;
 
@@ -135,6 +144,15 @@ namespace XLEB_Utils2
     {
         public string PrefixName { get; set; }
         public string PrefixColor { get; set; }
+    }
+
+    public class SchematicClass 
+    { 
+        public string SchematicName { get; set; }
+
+        public float x { get; set; }
+        public float y { get; set; }
+        public float z { get; set; }
     }
 }
 
