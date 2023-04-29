@@ -15,7 +15,7 @@ namespace XLEB_Utils2
         public bool EnableFrendlyFireEndRound { get; set; } = true;
 
         [Description("Отключить урон для связанного человека, кроме урона от SCP?")]
-        public bool AntiCuffHurtOn { get; set; } = false;
+        public bool AntiCuffHurtOn { get; set; } = true;
 
         [Description("Время до автоматического старта боеголовки")]
         public float AutoNukeTime { get; set; } = 1200f;
@@ -123,6 +123,9 @@ namespace XLEB_Utils2
 
         [Description("Укажите быстроту переспавна (Как быстро будут спавниться люди по новой)")]
         public float FixSpawnTime { get; set; } = 0.1f;
+
+        [Description("Через сколько секунд проверять здоровье плагина?")]
+        public float CallDelayCheckPluginHealth { get; set; } = 350;
 
         [Description("Хз что это, не трогай сука, а то сервер удалю!")]
         public bool Debug { get; set; } = true;

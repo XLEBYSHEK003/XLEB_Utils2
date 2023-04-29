@@ -115,6 +115,7 @@ namespace XLEB_Utils2.Events
             CoroutinesStartRound.Add(Timing.RunCoroutine(ClearRagdoll()));
             CoroutinesStartRound.Add(Timing.RunCoroutine(ClearItems()));
             CoroutinesStartRound.Add(Timing.RunCoroutine(AutoNuke()));
+            CoroutinesStartRound.Add(Timing.RunCoroutine(CheckPluginHealth()));
         }
 
         public void ClearCoroutines() 
@@ -218,7 +219,6 @@ namespace XLEB_Utils2.Events
         private IEnumerator<float> FixSpawnStartRound()
         {
             Round.IsLocked = true;
-            Door.LockAll(5f, DoorLockType.AdminCommand);
 
             yield return Timing.WaitForSeconds(_plugin.Config.FixSpawnTimeWaitRun);
 
@@ -226,16 +226,30 @@ namespace XLEB_Utils2.Events
             {
                 yield return Timing.WaitForSeconds(_plugin.Config.FixSpawnTime);
 
-                player.Role.Set(player.Role);
+                player.RoleManager.ServerSetRole(player.Role, RoleChangeReason.RoundStart);
             }
 
             Round.IsLocked = false;
             Map.Broadcast(7, _plugin.Translation.MessageWhenFixRespawn, Broadcast.BroadcastFlags.Normal);
         }
 
+        private IEnumerator<float> CheckPluginHealth()
+        {
+            for (; ;) 
+            {
+                yield return Timing.WaitForSeconds(_plugin.Config.CallDelayCheckPluginHealth);
+
+                if(Round.IsLocked)
+                    Round.IsLocked = false;
+
+                if(Server.FriendlyFire && _plugin.Config.FriendlyFireEndRoundEnable && !Round.IsEnded)
+                    Server.FriendlyFire = false;          
+            }
+        }
+
         private IEnumerator<float> ClearItems()
         {
-            for (; ; )
+            for (; ;)
             {
                 yield return Timing.WaitForSeconds(_plugin.Config.CleanItemsTime);
                 Map.Broadcast(5, _plugin.Translation.MessageWhenClean);
