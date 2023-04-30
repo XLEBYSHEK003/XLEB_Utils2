@@ -1,7 +1,6 @@
 ﻿using CommandSystem;
 using Exiled.API.Features;
 using Exiled.Permissions.Extensions;
-using MapEditorReborn.API.Features.Objects;
 using System;
 
 namespace XLEB_Utils2.Commands

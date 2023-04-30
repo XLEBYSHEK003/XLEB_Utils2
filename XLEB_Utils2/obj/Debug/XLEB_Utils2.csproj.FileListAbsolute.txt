@@ -4,7 +4,6 @@ C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.c
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.csproj.CoreCompileInputs.cache
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.pdb
-C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\0Harmony.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Assembly-CSharp-firstpass.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\CommandSystem.Core.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Exiled.CreditTags.dll
@@ -17,12 +16,10 @@ C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\MapEditorRebo
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Mirror.Components.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Mirror.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\PluginAPI.dll
-C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\SemanticVersioning.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\UnityEngine.CoreModule.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\UnityEngine.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\UnityEngine.Physics2DModule.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\UnityEngine.PhysicsModule.dll
-C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\YamlDotNet.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\UnityEngine.ParticleSystemModule.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\UnityEngine.AudioModule.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\UnityEngine.AnimationModule.dll
@@ -84,7 +81,6 @@ C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\UnityEngine.X
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\UnityEngine.InputModule.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.csproj.CopyComplete
-C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Assembly-CSharp-Publicized.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\XPSystem.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\XPSystem.pdb
 C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\bin\Debug\XLEB_Utils2.dll
@@ -153,3 +149,4 @@ C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\obj\Debug\
 C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.csproj.CopyComplete
 C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.pdb
+C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Exiled.API.dll
