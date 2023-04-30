@@ -2,6 +2,7 @@
 using Exiled.API.Features;
 using Exiled.Permissions.Extensions;
 using System;
+using XLEB_Utils2.Events;
 
 namespace XLEB_Utils2.Commands
 {
@@ -9,12 +10,9 @@ namespace XLEB_Utils2.Commands
     [CommandHandler(typeof(GameConsoleCommandHandler))]
     public class EventRun : ICommand
     {
-        private readonly Plugin _plugin;
-        public EventRun(Plugin plugin) => _plugin = plugin;
-
         public string Command { get; } = "eventrun";
 
-        public string[] Aliases { get; } 
+        public string[] Aliases { get; }
 
         public string Description { get; } = "Выключает некоторые функции плагина, которые могут помешать ивентам";
 
@@ -35,11 +33,11 @@ namespace XLEB_Utils2.Commands
             switch (arguments.At(0))
             {
                 case "false":
-                    _plugin.ServerEvents.SetOffFunctions(false);
+                    ServerEvents.SetOffFunctions(false);
                     response = $"Успешно включено!";
                     return true;
                 case "true":
-                    _plugin.ServerEvents.SetOffFunctions(true);
+                    ServerEvents.SetOffFunctions(true);
                     response = $"Успешно выключено!";
                     return true;
             }

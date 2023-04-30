@@ -20,7 +20,7 @@ namespace XLEB_Utils2.Events
         public ServerEvents(Plugin plugin) => _plugin = plugin;
         public WarheadEvents WarheadEvents;
         private SchematicObject LobbyRoom;
-        public bool OffFunctions;
+        public static bool OffFunctions;
         public List<SchematicObject> schemaobject = new List<SchematicObject>();
         public List<CoroutineHandle> CoroutinesStartRound = new List<CoroutineHandle>();
         public List<CoroutineHandle> FastCoroutines = new List<CoroutineHandle>();
@@ -145,7 +145,7 @@ namespace XLEB_Utils2.Events
             FastCoroutines.Clear();
         }
 
-        public void SetOffFunctions(bool value)
+        public static void SetOffFunctions(bool value)
         {
             OffFunctions = value;
         }
