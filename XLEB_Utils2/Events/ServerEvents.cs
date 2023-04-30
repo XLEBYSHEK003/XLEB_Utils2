@@ -20,13 +20,15 @@ namespace XLEB_Utils2.Events
         public ServerEvents(Plugin plugin) => _plugin = plugin;
         public WarheadEvents WarheadEvents;
         private SchematicObject LobbyRoom;
+        public bool OffFunctions;
         public List<SchematicObject> schemaobject = new List<SchematicObject>();
         public List<CoroutineHandle> CoroutinesStartRound = new List<CoroutineHandle>();
         public List<CoroutineHandle> FastCoroutines = new List<CoroutineHandle>();
 
         public void OnWaitingForPlayers()
         {
-            ClearCoroutines();             
+            SetOffFunctions(false);
+            ClearCoroutines();
 
             if(_plugin.Config.FriendlyFireEndRoundEnable && Server.FriendlyFire)
                 Server.FriendlyFire = false;
@@ -85,7 +87,7 @@ namespace XLEB_Utils2.Events
         {
             {LeadingTeam.Anomalies, "SCP"},
             {LeadingTeam.ChaosInsurgency, "ХАОС"},
-            {LeadingTeam.FacilityForces, "Служба Безопаности Комплекса"},
+            {LeadingTeam.FacilityForces, "Служба Безопасности Комплекса"},
             {LeadingTeam.Draw, "Ничья"},
         };
 
@@ -141,6 +143,11 @@ namespace XLEB_Utils2.Events
             }
             _plugin.WarheadEvents.ClearWarheadCoroutines();
             FastCoroutines.Clear();
+        }
+
+        public void SetOffFunctions(bool value)
+        {
+            OffFunctions = value;
         }
 
         public static void UnSpawnScp() 
@@ -244,15 +251,15 @@ namespace XLEB_Utils2.Events
 
         private IEnumerator<float> CheckPluginHealth()
         {
-            for (; ;) 
-            {
-                yield return Timing.WaitForSeconds(_plugin.Config.CallDelayCheckPluginHealth);
+            yield return Timing.WaitForSeconds(_plugin.Config.CallDelayCheckPluginHealth);
 
-                if(Round.IsLocked)
+            if (!OffFunctions)
+            {
+                if (Round.IsLocked)
                     Round.IsLocked = false;
 
-                if(Server.FriendlyFire && _plugin.Config.FriendlyFireEndRoundEnable && !Round.IsEnded)
-                    Server.FriendlyFire = false;          
+                if (Server.FriendlyFire && _plugin.Config.FriendlyFireEndRoundEnable && !Round.IsEnded)
+                    Server.FriendlyFire = false;
             }
         }
 

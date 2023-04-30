@@ -133,7 +133,7 @@ namespace XLEB_Utils2
             {new SchematicClass { SchematicName = "DetailedGateA", x = 0f, y = 1000f, z = 0f } }
         };
 
-        [Description("Через сколько секунд проверять здоровье плагина?")]
+        [Description("Через сколько секунд проверить здоровье плагина?")]
         public float CallDelayCheckPluginHealth { get; set; } = 350;
 
         [Description("Хз что это, не трогай сука, а то сервер удалю!")]
