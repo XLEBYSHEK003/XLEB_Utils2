@@ -56,13 +56,19 @@ namespace XLEB_Utils2.Events
 
         public void OnRespawnTeam(RespawningTeamEventArgs ev)
         {
-            FastCoroutines.Add(Timing.RunCoroutine(SpawnProtect(ev.Players)));
+            if (_plugin.Config.SquadProtectOnSpawn) 
+            {
+                foreach (Player player in ev.Players)
+                {
+                    player.EnableEffect(EffectType.SpawnProtected, _plugin.Config.SpawnProtectTime, false);
+                }
+            }
         }
 
         public void OnRoundEnded(RoundEndedEventArgs ev)
         {
             if (_plugin.Config.PublicLogWebhookEnable && _plugin.Config.ImageEndRoundWebhook.ContainsKey(ev.LeadingTeam))
-                Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Раунд закончился!\nВ раунде {Player.List.Count()} игроков.\nПобедили: {GetWinTeam(ev.LeadingTeam)}\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageEndRoundWebhook[ev.LeadingTeam]);
+                Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Раунд закончился!\nВ раунде {Player.List.Count()} игроков.\nПобедили: {GetWinTeam(ev.LeadingTeam)}\nВремя раунда: {(int)Round.ElapsedTime.TotalMinutes}:{(int)Round.ElapsedTime.TotalSeconds}\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageEndRoundWebhook[ev.LeadingTeam]);
 
             if (_plugin.Config.FriendlyFireEndRoundEnable && !Server.FriendlyFire)
                 Server.FriendlyFire = true;
@@ -194,21 +200,6 @@ namespace XLEB_Utils2.Events
             Map.Broadcast(6, _plugin.Translation.MessageAutoNuke); 
         }
 
-        private IEnumerator<float> SpawnProtect(List<Player> players)
-        {
-            foreach (Player player in players)
-            {
-                player.IsGodModeEnabled = true;
-            }
-
-            yield return Timing.WaitForSeconds(10f);
-
-            foreach (Player player in players)
-            {
-                player.IsGodModeEnabled = false;
-            }
-        }
-
         private IEnumerator<float> ServerBroadcast()
         {
             for (; ;)
@@ -268,6 +259,10 @@ namespace XLEB_Utils2.Events
             for (; ;)
             {
                 yield return Timing.WaitForSeconds(_plugin.Config.CleanItemsTime);
+
+                if (OffFunctions)
+                    break;
+
                 Map.Broadcast(5, _plugin.Translation.MessageWhenClean);
                 foreach (Pickup item in Pickup.List)
                 {

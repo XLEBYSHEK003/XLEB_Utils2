@@ -48,6 +48,12 @@ namespace XLEB_Utils2
         [Description("Время до очистки карты от предметов:")]
         public float CleanItemsTime { get; set; } = 600f;
 
+        [Description("Включить защиту отрядов при их спавне?")]
+        public bool SquadProtectOnSpawn { get; set; } = true;
+
+        [Description("Время действия защиты отряда")]
+        public float SpawnProtectTime { get; set; } = 10f;
+
         [Description("Список запрещённых к очистке предметов")]
         public List<ItemType> NotClearItems { get; set; } = new List<ItemType>
         {
@@ -57,6 +63,13 @@ namespace XLEB_Utils2
 
         [Description("Запретить розовую конфету донатерам")]
         public bool PinkCandyDonateDisable { get; set; } = true;
+
+        [Description("Список запрещенных ролей для использования конфеты")]
+        public List<string> DisablePinkCandyNameGroup { get; set; } = new List<string>
+        {
+            "admin",
+            "helper"
+        };
 
         [Description("Включить огонь по своим в конце раунда?")]
         public bool FriendlyFireEndRoundEnable { get; set; } = false;
@@ -80,13 +93,6 @@ namespace XLEB_Utils2
         {
             {"278423472934@steam", new Prefixes{PrefixName ="Токийский трунь", PrefixColor ="red" } },
             {"278423472944@steam", new Prefixes{PrefixName ="Токийский гуль", PrefixColor ="red" }  },
-        };
-
-        [Description("Список запрещенных ролей для использования конфеты")]
-        public List<string> DisablePinkCandyNameGroup { get; set; } = new List<string>
-        {
-            "admin",
-            "helper"
         };
 
         [Description("Включить публичные логи для сервера? Всё по VSR.")]
@@ -127,7 +133,7 @@ namespace XLEB_Utils2
         [Description("Если у вас есть построка для лобби, то заполните поля")]
         public SchematicClass LobbyBuilding { get; set; } = new SchematicClass { SchematicName = "0001", x = 20f, y = 940f, z = -40f };
 
-        [Description("Постройки")]
+        [Description("Постройки для Map Editor Reborn")]
         public List<SchematicClass> SchematicList { get; set; } = new List<SchematicClass>()
         {
             {new SchematicClass { SchematicName = "DetailedGateA", x = 0f, y = 1000f, z = 0f } }
