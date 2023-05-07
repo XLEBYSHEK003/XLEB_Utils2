@@ -13,6 +13,9 @@ namespace XLEB_Utils2.Commands
     [CommandHandler(typeof(GameConsoleCommandHandler))]
     public class LobbyRoom : ICommand
     {
+        private readonly Plugin _plugin;
+        public LobbyRoom(Plugin plugin) => _plugin = plugin;
+
         private SchematicObject LobbyBackroom;
 
         public string Command { get; } = "lobbyroom";
@@ -40,7 +43,7 @@ namespace XLEB_Utils2.Commands
             switch (arguments.At(0))
             {
                 case "spawn":
-                    LobbyBackroom = ObjectSpawner.SpawnSchematic("Backrooms", new Vector3(20f, 940f, -40));
+                    LobbyBackroom = ObjectSpawner.SpawnSchematic(_plugin.Config.LobbyBuilding.SchematicName, new Vector3(_plugin.Config.LobbyBuilding.x, _plugin.Config.LobbyBuilding.y, _plugin.Config.LobbyBuilding.z));
                     response = $"Успешно заспавнена!";
                     return true;
                 case "delete":
