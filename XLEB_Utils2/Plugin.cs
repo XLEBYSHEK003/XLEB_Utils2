@@ -35,7 +35,7 @@ namespace XLEB_Utils2
                 Log.Error(e);
             }
 
-            Log.Info(string.Format("Plugin {0} ({1}) by {2} enabled sucessfully!", Name, Version, Author));
+            Log.Info(string.Format("Плагин {0} ({1}) от {2} активирован успешно!", Name, Version, Author));
             RegisterEvents();
         }
 
@@ -44,7 +44,7 @@ namespace XLEB_Utils2
             harmony?.UnpatchAll(harmony.Id);
             harmony = null;
 
-            Log.Info(string.Format("Plugin {0} ({1}) by {2} disabled!", Name, Version, Author));
+            Log.Info(string.Format("Плагин {0} ({1}) от {2} выключен!", Name, Version, Author));
             UnregisterEvents();
         }
 
@@ -87,6 +87,7 @@ namespace XLEB_Utils2
             Player.Died -= PlayerEvents.OnDied;
             Player.Verified -= PlayerEvents.OnPlayerVerified;
             Player.ChangingRole += PlayerEvents.OnChangingRole;
+
             Scp096.AddingTarget -= PlayerEvents.OnSCP095AddTarget;
             Scp330.EatingScp330 -= PlayerEvents.OnEatingCandy;
 

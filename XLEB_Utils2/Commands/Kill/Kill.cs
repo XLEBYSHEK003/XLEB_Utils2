@@ -5,7 +5,6 @@ using PlayerRoles;
 
 namespace XLEB_Utils2.Commands
 {
-
     [CommandHandler(typeof(ClientCommandHandler))]
     public class Kill : ICommand
     {

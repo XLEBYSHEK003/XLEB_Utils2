@@ -11,6 +11,7 @@ using MapEditorReborn.API.Features;
 using MapEditorReborn.API.Features.Objects;
 using MEC;
 using Exiled.API.Enums;
+using XLEB_Utils2.Commands.ScpSwap;
 
 namespace XLEB_Utils2.Events
 {
@@ -20,6 +21,7 @@ namespace XLEB_Utils2.Events
         public ServerEvents(Plugin plugin) => _plugin = plugin;
         public WarheadEvents WarheadEvents;
         private SchematicObject LobbyRoom;
+        ScpSwapComponent swapComponent = new ScpSwapComponent();
         public static bool OffFunctions;
         public List<SchematicObject> schemaobject = new List<SchematicObject>();
         public List<CoroutineHandle> CoroutinesStartRound = new List<CoroutineHandle>();
@@ -43,6 +45,7 @@ namespace XLEB_Utils2.Events
             StartCoroutines();
             LobbyRoom.Destroy();
             UnSpawnScp();
+            GetTypesScpInRound();
 
             if (_plugin.Config.PublicLogWebhookEnable)
                 Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Начался новый раунд!\nВ раунде {Player.List.Count()} игроков.\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageStartRoundWebhook.RandomItem());
@@ -107,6 +110,17 @@ namespace XLEB_Utils2.Events
             {
                 return "Неизвестная команда";
             }
+        }
+
+        public void GetTypesScpInRound() 
+        {
+            foreach (Player player in Player.List) 
+            {
+                if (player.Role.Side == Side.Scp && !swapComponent.TotalScpInRound.Contains(player.Role.Type)) 
+                {
+                    swapComponent.TotalScpInRound.Add(player.Role.Type); 
+                }
+            }  
         }
 
         public void SpawnBuildings() 

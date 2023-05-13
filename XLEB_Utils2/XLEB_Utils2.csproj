@@ -57,6 +57,8 @@
     <Compile Include="Commands\Kill\Kill.cs" />
     <Compile Include="Commands\LobbyRoom\LobbyRoom.cs" />
     <Compile Include="Commands\Rocket\Rocket.cs" />
+    <Compile Include="Commands\ScpSwap\ScpSwap.cs" />
+    <Compile Include="Commands\ScpSwap\ScpSwapComponent.cs" />
     <Compile Include="Commands\Size\Size.cs" />
     <Compile Include="Commands\TPS\TPS.cs" />
     <Compile Include="Config.cs" />
@@ -85,41 +87,46 @@
     </Reference>
     <Reference Include="Exiled.API, Version=6.1.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\EXILED\EXILED\Plugins\dependencies\Exiled.API.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.API.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.CreditTags, Version=6.1.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\EXILED\EXILED\Plugins\Exiled.CreditTags.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.CreditTags.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.CustomItems, Version=6.1.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\EXILED\EXILED\Plugins\Exiled.CustomItems.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.CustomItems.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.CustomRoles, Version=6.1.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\EXILED\EXILED\Plugins\Exiled.CustomRoles.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.CustomRoles.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.Events, Version=6.1.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\EXILED\EXILED\Plugins\Exiled.Events.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="Exiled.Loader">
+      <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.Loader.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.Permissions, Version=6.1.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\EXILED\EXILED\Plugins\Exiled.Permissions.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.Permissions.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.Updater, Version=3.1.2.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Desktop\EXILED\EXILED\Plugins\Exiled.Updater.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.Updater.dll</HintPath>
     </Reference>
-    <Reference Include="MapEditorReborn, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\MapEditorReborn.dll</HintPath>
+    <Reference Include="MapEditorReborn %281%29">
+      <HintPath>..\..\..\..\Downloads\MapEditorReborn (1).dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
       <HintPath>..\..\..\..\Desktop\Ссылки\Mirror.dll</HintPath>
     </Reference>
     <Reference Include="Mirror.Components">
       <HintPath>..\..\..\..\Desktop\Ссылки\Mirror.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>..\..\..\..\Desktop\EXILED 6\Mono.Posix.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\..\..\..\Games\Newtonsoft.Json.dll</HintPath>

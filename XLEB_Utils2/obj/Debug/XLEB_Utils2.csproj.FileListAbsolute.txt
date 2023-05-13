@@ -12,7 +12,6 @@ C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Exiled.Custom
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Exiled.Events.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Exiled.Permissions.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Exiled.Updater.dll
-C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\MapEditorReborn.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Mirror.Components.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Mirror.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\PluginAPI.dll
@@ -150,3 +149,6 @@ C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\obj\Debug\
 C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.dll
 C:\Users\XLEB_YSHEK\source\repos\XLEBYSHEK003\XLEB_Utils2\XLEB_Utils2\obj\Debug\XLEB_Utils2.pdb
 C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Exiled.API.dll
+C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Exiled.Loader.dll
+C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\MapEditorReborn (1).dll
+C:\Users\XLEB_YSHEK\source\repos\XLEB_Utils2\XLEB_Utils2\bin\Debug\Mono.Posix.dll
