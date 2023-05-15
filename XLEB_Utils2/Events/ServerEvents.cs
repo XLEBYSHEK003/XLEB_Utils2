@@ -70,16 +70,15 @@ namespace XLEB_Utils2.Events
 
         public void OnRoundEnded(RoundEndedEventArgs ev)
         {
+            UnMuteAllPlayers();
+            _plugin.WarheadEvents.ClearWarheadCoroutines();
+            ClearCoroutines();
+
             if (_plugin.Config.PublicLogWebhookEnable && _plugin.Config.ImageEndRoundWebhook.ContainsKey(ev.LeadingTeam))
                 Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Раунд закончился!\nВ раунде {Player.List.Count()} игроков.\nПобедили: {GetWinTeam(ev.LeadingTeam)}\nВремя раунда: {(int)Round.ElapsedTime.TotalMinutes}:{(int)Round.ElapsedTime.TotalSeconds}\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageEndRoundWebhook[ev.LeadingTeam]);
 
             if (_plugin.Config.FriendlyFireEndRoundEnable && !Server.FriendlyFire)
                 Server.FriendlyFire = true;
-
-            UnMuteAllPlayers();
-
-            _plugin.WarheadEvents.ClearWarheadCoroutines();
-            ClearCoroutines();
         }
 
         #region Различные методы
