@@ -23,6 +23,15 @@ namespace XLEB_Utils2
         [Description("Сделать бесконечное радио?")]
         public bool UnlimitedBattery { get; set; } = true;
 
+        [Description("Включить лобби для ожидания игроков?")]
+        public bool LobbyEnable { get; set; } = true;
+
+        [Description("Лобби. Размер надписей")]
+        public int TopTextSize { get; set; } = 50;
+
+        [Description("Размер нижнего текста")]
+        public int BottomTextSize { get; set; } = 40;
+
         [Description("Автоматические надписи:")]
         public List<string> ServerMessage { get; set; } = new List<string>
         {

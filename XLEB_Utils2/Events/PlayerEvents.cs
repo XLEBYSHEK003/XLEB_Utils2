@@ -45,7 +45,7 @@ namespace XLEB_Utils2.Events
         public void OnUsingBattery(UsingRadioBatteryEventArgs ev) 
         {
             if (_plugin.Config.UnlimitedBattery)
-                ev.IsAllowed = false;          
+                ev.Radio.BatteryLevel = 77;        
         }
 
         public void OnSCP095AddTarget(AddingTargetEventArgs ev) 
