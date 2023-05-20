@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using Exiled.API.Interfaces;
 using System.ComponentModel;
 using Exiled.API.Enums;
-using Exiled.API.Interfaces;
 using PlayerRoles;
 
 namespace XLEB_Utils2
@@ -23,14 +23,23 @@ namespace XLEB_Utils2
         [Description("Сделать бесконечное радио?")]
         public bool UnlimitedBattery { get; set; } = true;
 
-        [Description("Включить лобби для ожидания игроков?")]
+        [Description("Лобби. Включить лобби для ожидания игроков?")]
         public bool LobbyEnable { get; set; } = true;
 
         [Description("Лобби. Размер надписей")]
         public int TopTextSize { get; set; } = 50;
 
-        [Description("Размер нижнего текста")]
+        [Description("Лобби. Размер нижнего текста")]
         public int BottomTextSize { get; set; } = 40;
+
+        [Description("Лобби.Время (в секундах) между присоединением игрока к серверу и сменой им роли в лобби")]
+        public float SpawnDelay { get; private set; } = 0.4f;
+
+        [Description("Лобби. Роли для спавна")]
+        public List<RoleTypeId> RolesToChoose { get; set; } = new List<RoleTypeId>()
+        {
+            RoleTypeId.Tutorial
+        };
 
         [Description("Автоматические надписи:")]
         public List<string> ServerMessage { get; set; } = new List<string>

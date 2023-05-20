@@ -1,7 +1,7 @@
-﻿using Exiled.Events.EventArgs.Player;
+﻿using InventorySystem.Items.Usables.Scp330;
+using Exiled.Events.EventArgs.Player;
 using Exiled.Events.EventArgs.Scp096;
 using Exiled.Events.EventArgs.Scp330;
-using InventorySystem.Items.Usables.Scp330;
 using PlayerRoles;
 using MEC;
 
@@ -14,6 +14,9 @@ namespace XLEB_Utils2.Events
 
         public void OnPlayerVerified(VerifiedEventArgs ev)
         {
+            if(_plugin.Config.LobbyEnable)
+                _plugin.LobbyMethods.LobbyPlayerVerified(ev.Player);
+
             if (_plugin.Config.EnableDonatorsRank)
             {
                 if (ev.Player.UserId != null && _plugin.Config.PrefixesList.ContainsKey(ev.Player.UserId)) 

@@ -1,8 +1,7 @@
-﻿using System;
-using GameCore;
-using HarmonyLib;
+﻿using Exiled.API.Features;
 using PlayerRoles;
-using Exiled.API.Features;
+using HarmonyLib;
+using GameCore;
 
 namespace XLEB_Utils2.Patches
 {

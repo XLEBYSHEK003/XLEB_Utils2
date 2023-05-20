@@ -1,13 +1,15 @@
-﻿using System;
-using Exiled.API.Features;
-using Exiled.API.Enums;
-using Exiled.Events.Handlers;
-using XLEB_Utils2.Events;
-using HarmonyLib;
+﻿using Warhead = Exiled.Events.Handlers.Warhead;
 using Server = Exiled.Events.Handlers.Server;
 using Player = Exiled.Events.Handlers.Player;
 using Scp096 = Exiled.Events.Handlers.Scp096;
-using Warhead = Exiled.Events.Handlers.Warhead;
+using Exiled.Events.Handlers;
+using Exiled.API.Features;
+using XLEB_Utils2.Events;
+using XLEB_Utils2.Lobby;
+using Exiled.API.Enums;
+using HarmonyLib;
+using System;
+
 
 namespace XLEB_Utils2
 {
@@ -21,6 +23,7 @@ namespace XLEB_Utils2
         public PlayerEvents PlayerEvents;
         public ServerEvents ServerEvents;
         public WarheadEvents WarheadEvents;
+        public LobbyMethods LobbyMethods;
         private Harmony harmony;
 
         public override void OnEnabled()
@@ -53,6 +56,7 @@ namespace XLEB_Utils2
             ServerEvents = new ServerEvents(this);
             PlayerEvents = new PlayerEvents(this);
             WarheadEvents = new WarheadEvents(this);
+            LobbyMethods = new LobbyMethods(this);
 
             Server.WaitingForPlayers += ServerEvents.OnWaitingForPlayers;
             Server.RoundStarted += ServerEvents.OnRoundStart;
@@ -98,6 +102,7 @@ namespace XLEB_Utils2
             PlayerEvents = null;
             ServerEvents = null;
             WarheadEvents = null;
+            LobbyMethods = null;
 
             base.OnDisabled();
         }

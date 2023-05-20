@@ -1,8 +1,7 @@
-﻿using MEC;
-using System;
-using System.Collections.Generic;
+﻿using Exiled.Events.EventArgs.Warhead;
 using Map = Exiled.API.Features.Map;
-using Exiled.Events.EventArgs.Warhead;
+using System.Collections.Generic;
+using MEC;
 
 namespace XLEB_Utils2.Events
 {

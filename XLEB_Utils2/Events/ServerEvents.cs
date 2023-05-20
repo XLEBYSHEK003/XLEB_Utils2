@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Exiled.API.Features.Pickups;
-using Exiled.API.Features;
+﻿using MapEditorReborn.API.Features.Objects;
 using Exiled.Events.EventArgs.Server;
+using Map = Exiled.API.Features.Map;
+using XLEB_Utils2.Commands.ScpSwap;
+using MapEditorReborn.API.Features;
+using Exiled.API.Features.Pickups;
+using Random = UnityEngine.Random;
+using System.Collections.Generic;
+using Exiled.API.Features;
+using Exiled.API.Enums;
+using System.Linq;
 using UnityEngine;
 using PlayerRoles;
-using Map = Exiled.API.Features.Map;
-using Random = UnityEngine.Random;
-using MapEditorReborn.API.Features;
-using MapEditorReborn.API.Features.Objects;
 using MEC;
-using Exiled.API.Enums;
-using XLEB_Utils2.Commands.ScpSwap;
+
 
 namespace XLEB_Utils2.Events
 {
@@ -21,14 +22,17 @@ namespace XLEB_Utils2.Events
         public ServerEvents(Plugin plugin) => _plugin = plugin;
         public WarheadEvents WarheadEvents;
         private SchematicObject LobbyRoom;
-        ScpSwapComponent swapComponent = new ScpSwapComponent();
         public static bool OffFunctions;
+        ScpSwapComponent swapComponent = new ScpSwapComponent();
         public List<SchematicObject> schemaobject = new List<SchematicObject>();
         public List<CoroutineHandle> CoroutinesStartRound = new List<CoroutineHandle>();
         public List<CoroutineHandle> FastCoroutines = new List<CoroutineHandle>();
 
         public void OnWaitingForPlayers()
         {
+            if (_plugin.Config.LobbyEnable)
+                _plugin.LobbyMethods.LobbyWaitingForPlayer();
+
             SetOffFunctions(false);
             ClearCoroutines();
 
@@ -41,6 +45,9 @@ namespace XLEB_Utils2.Events
 
         public void OnRoundStart()
         {
+            if(_plugin.Config.LobbyEnable)
+                _plugin.LobbyMethods.LobbyRoundStart();
+
             ClearCoroutines();
             StartCoroutines();
             LobbyRoom.Destroy();

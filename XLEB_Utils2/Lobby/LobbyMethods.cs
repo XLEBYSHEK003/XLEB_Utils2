@@ -7,6 +7,7 @@ using Exiled.API.Features;
 using UnityEngine;
 using PlayerRoles;
 using System.Linq;
+using GameCore;
 using Mirror;
 using MEC;
 
@@ -17,6 +18,7 @@ namespace XLEB_Utils2.Lobby
         private readonly Plugin _plugin;
         public LobbyMethods(Plugin plugin) => _plugin = plugin;
         private string text;
+        CoroutineHandle LobbyTimerT;
         public void LobbyWaitingForPlayer() 
         {
             GameObject.Find("StartRound").transform.localScale = Vector3.zero;
@@ -24,11 +26,24 @@ namespace XLEB_Utils2.Lobby
             if (Server.FriendlyFire)
                 FriendlyFireConfig.PauseDetector = true;
 
-           CoroutineHandle LobbyTimerT = Timing.RunCoroutine(LobbyTimer());
+            LobbyTimerT = Timing.RunCoroutine(LobbyTimer());
+        }
+
+        public void LobbyPlayerVerified(Player player)
+        {
+            if (RoundStart.singleton.NetworkTimer > 1 || RoundStart.singleton.NetworkTimer == -2)
+            {
+                Timing.CallDelayed(_plugin.Config.SpawnDelay, () =>
+                {
+                    player.RoleManager.ServerSetRole(_plugin.Config.RolesToChoose[Random.Range(0, _plugin.Config.RolesToChoose.Count)], RoleChangeReason.RoundStart);
+                });
+            }
         }
 
         public void LobbyRoundStart() 
         {
+            Timing.KillCoroutines(LobbyTimerT);
+
             foreach (Player player in Player.List)
             {
                 player.ClearInventory();
