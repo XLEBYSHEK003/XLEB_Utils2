@@ -3,12 +3,14 @@ using Server = Exiled.API.Features.Server;
 using Player = Exiled.API.Features.Player;
 using Object = UnityEngine.Object;
 using System.Collections.Generic;
+using Random = System.Random;
 using Exiled.API.Features;
 using UnityEngine;
 using PlayerRoles;
 using System.Linq;
 using GameCore;
 using Mirror;
+using System;
 using MEC;
 
 namespace XLEB_Utils2.Lobby
@@ -19,8 +21,13 @@ namespace XLEB_Utils2.Lobby
         public LobbyMethods(Plugin plugin) => _plugin = plugin;
         private string text;
         CoroutineHandle LobbyTimerT;
+        private Random random = new Random();
+        private Vector3 LobbyLocation;
+
         public void LobbyWaitingForPlayer() 
         {
+            LobbyLocation = _plugin.Config.SpawnLocations.Values.ElementAt(random.Next(_plugin.Config.SpawnLocations.Count()));
+
             GameObject.Find("StartRound").transform.localScale = Vector3.zero;
 
             if (Server.FriendlyFire)
@@ -35,9 +42,17 @@ namespace XLEB_Utils2.Lobby
             {
                 Timing.CallDelayed(_plugin.Config.SpawnDelay, () =>
                 {
-                    player.RoleManager.ServerSetRole(_plugin.Config.RolesToChoose[Random.Range(0, _plugin.Config.RolesToChoose.Count)], RoleChangeReason.RoundStart);
+                    player.RoleManager.ServerSetRole(_plugin.Config.RolesToChoose[UnityEngine.Random.Range(0, _plugin.Config.RolesToChoose.Count)], RoleChangeReason.RoundStart);
                 });
             }
+        }
+
+        public void OnSpawn(Player player) 
+        {
+            if (RoundStart.singleton.NetworkTimer <= 1 && RoundStart.singleton.NetworkTimer != -2)
+                return;
+
+            player.Position = LobbyLocation;
         }
 
         public void LobbyRoundStart() 

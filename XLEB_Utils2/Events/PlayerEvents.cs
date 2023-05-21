@@ -4,6 +4,7 @@ using Exiled.Events.EventArgs.Scp096;
 using Exiled.Events.EventArgs.Scp330;
 using PlayerRoles;
 using MEC;
+using Exiled.API.Features;
 
 namespace XLEB_Utils2.Events
 {
@@ -25,6 +26,14 @@ namespace XLEB_Utils2.Events
                     Timing.CallDelayed(7, () => ev.Player.RankColor = _plugin.Config.PrefixesList[ev.Player.UserId].PrefixColor);
                 }
             }
+        }
+
+        public void OnSpawned(SpawnedEventArgs ev) 
+        {
+
+            if (_plugin.Config.LobbyEnable && Round.IsLobby)
+                _plugin.LobbyMethods.OnSpawn(ev.Player);
+        
         }
 
         public void OnPlayerHurting(HurtingEventArgs ev)

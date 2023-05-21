@@ -66,6 +66,7 @@ namespace XLEB_Utils2
             Scp096.AddingTarget += PlayerEvents.OnSCP095AddTarget;
             Player.UsingRadioBattery += PlayerEvents.OnUsingBattery;
             Player.Hurting += PlayerEvents.OnPlayerHurting;
+            Player.Spawned += PlayerEvents.OnSpawned;
             Player.ChangingRole += PlayerEvents.OnChangingRole;
             Player.Verified += PlayerEvents.OnPlayerVerified;
             if (Config.PinkCandyDonateDisable)
@@ -89,6 +90,7 @@ namespace XLEB_Utils2
             Player.Hurting -= PlayerEvents.OnPlayerHurting;
             Player.UsingRadioBattery -= PlayerEvents.OnUsingBattery;
             Player.Died -= PlayerEvents.OnDied;
+            Player.Spawned -= PlayerEvents.OnSpawned;
             Player.Verified -= PlayerEvents.OnPlayerVerified;
             Player.ChangingRole += PlayerEvents.OnChangingRole;
 

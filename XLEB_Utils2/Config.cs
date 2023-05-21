@@ -3,6 +3,7 @@ using Exiled.API.Interfaces;
 using System.ComponentModel;
 using Exiled.API.Enums;
 using PlayerRoles;
+using UnityEngine;
 
 namespace XLEB_Utils2
 {
@@ -39,6 +40,13 @@ namespace XLEB_Utils2
         public List<RoleTypeId> RolesToChoose { get; set; } = new List<RoleTypeId>()
         {
             RoleTypeId.Tutorial
+        };
+
+        [Description("Лобби. Локации для спавна")]
+        public Dictionary<string, Vector3> SpawnLocations { get; set; } = new Dictionary<string, Vector3>()
+        {
+            ["Tower1"] = new Vector3(54.81f, 1019.41f, -44.906f),
+            ["Tower2"] = new Vector3(148.6951f, 1019.447f, -19.06371f)
         };
 
         [Description("Автоматические надписи:")]
