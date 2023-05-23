@@ -12,7 +12,6 @@ namespace XLEB_Utils2.Patches
             string query = q.ToLower();
             if (q.Contains("setgroup") || q.Contains("pm setgroup"))
             {
-                Log.Info("Этап 1");
                 Player player = sender is PlayerCommandSender playerCommandSender
                    ? Player.Get(playerCommandSender)
                    : Server.Host;

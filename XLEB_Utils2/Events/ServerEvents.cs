@@ -30,9 +30,6 @@ namespace XLEB_Utils2.Events
 
         public void OnWaitingForPlayers()
         {
-            if (_plugin.Config.LobbyEnable)
-                _plugin.LobbyMethods.LobbyWaitingForPlayer();
-
             SetOffFunctions(false);
             ClearCoroutines();
 
@@ -45,21 +42,21 @@ namespace XLEB_Utils2.Events
 
         public void OnRoundStart()
         {
-            if(_plugin.Config.LobbyEnable)
-                _plugin.LobbyMethods.LobbyRoundStart();
-
             ClearCoroutines();
             StartCoroutines();
-            LobbyRoom.Destroy();
-            UnSpawnScp();
-            GetTypesScpInRound();
 
+            if(LobbyRoom != null)
+                LobbyRoom.Destroy();
+
+            UnSpawnScp();
+
+            GetTypesScpInRound();
             if (_plugin.Config.PublicLogWebhookEnable)
                 Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Начался новый раунд!\nВ раунде {Player.List.Count()} игроков.\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageStartRoundWebhook.RandomItem());
 
             if (_plugin.Config.SchematicList.Count > 0)
                 SpawnBuildings();
-           
+
             if (_plugin.Config.FixSpawnOnStartRound)
                 CoroutinesStartRound.Add(Timing.RunCoroutine(FixSpawnStartRound()));
         }

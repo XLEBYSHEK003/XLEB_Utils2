@@ -6,7 +6,7 @@ using System.Linq;
 namespace XLEB_Utils2.Commands.ScpSwap
 {
     [CommandHandler(typeof(ClientCommandHandler))]
-    public class ScpSwap
+    public class ScpSwap : ICommand
     {
         ScpSwapComponent swapComponent = new ScpSwapComponent();
         public string Command { get; } = "scpswap";

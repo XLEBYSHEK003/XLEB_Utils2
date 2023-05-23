@@ -5,7 +5,6 @@ using Scp096 = Exiled.Events.Handlers.Scp096;
 using Exiled.Events.Handlers;
 using Exiled.API.Features;
 using XLEB_Utils2.Events;
-using XLEB_Utils2.Lobby;
 using Exiled.API.Enums;
 using HarmonyLib;
 using System;
@@ -23,7 +22,6 @@ namespace XLEB_Utils2
         public PlayerEvents PlayerEvents;
         public ServerEvents ServerEvents;
         public WarheadEvents WarheadEvents;
-        public LobbyMethods LobbyMethods;
         private Harmony harmony;
 
         public override void OnEnabled()
@@ -56,7 +54,6 @@ namespace XLEB_Utils2
             ServerEvents = new ServerEvents(this);
             PlayerEvents = new PlayerEvents(this);
             WarheadEvents = new WarheadEvents(this);
-            LobbyMethods = new LobbyMethods(this);
 
             Server.WaitingForPlayers += ServerEvents.OnWaitingForPlayers;
             Server.RoundStarted += ServerEvents.OnRoundStart;
@@ -66,7 +63,6 @@ namespace XLEB_Utils2
             Scp096.AddingTarget += PlayerEvents.OnSCP095AddTarget;
             Player.UsingRadioBattery += PlayerEvents.OnUsingBattery;
             Player.Hurting += PlayerEvents.OnPlayerHurting;
-            Player.Spawned += PlayerEvents.OnSpawned;
             Player.ChangingRole += PlayerEvents.OnChangingRole;
             Player.Verified += PlayerEvents.OnPlayerVerified;
             if (Config.PinkCandyDonateDisable)
@@ -90,7 +86,6 @@ namespace XLEB_Utils2
             Player.Hurting -= PlayerEvents.OnPlayerHurting;
             Player.UsingRadioBattery -= PlayerEvents.OnUsingBattery;
             Player.Died -= PlayerEvents.OnDied;
-            Player.Spawned -= PlayerEvents.OnSpawned;
             Player.Verified -= PlayerEvents.OnPlayerVerified;
             Player.ChangingRole += PlayerEvents.OnChangingRole;
 
@@ -104,7 +99,6 @@ namespace XLEB_Utils2
             PlayerEvents = null;
             ServerEvents = null;
             WarheadEvents = null;
-            LobbyMethods = null;
 
             base.OnDisabled();
         }
