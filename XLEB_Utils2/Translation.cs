@@ -32,28 +32,13 @@ namespace XLEB_Utils2
         [Description("Надпись при переспавне людей, если включён фикс спавна")]
         public string MessageWhenFixRespawn { get; set; } = "Все были переспавнены, для избежания проблем со спавном";
 
-        [Description("Лобби. Верхняя надпись")]
-        public string TitleText { get; set; } = "<color=#F0FF00><b>Ожидание игроков, {seconds}</b></color>";
+        [Description("Кастомный интерком. Надпись при ожидании. Желательно не трогать!")]
+        public string TextIntercomeWaitSpeak { get; set; } = "<size=70%>Сводка C.A.S.S.I.E</size>\n\n<size=35%>SCP на свободе: <color='red'>%alive_scp%</color>\nОбнаружено живых людей на территории: <color='green'>%alive_people%</color>\nДа рассчётного прибытия подмоги: <color='green'>%time_to_cum%</color>\n\n<color='blue'>Статус интеркома:</color>\n%intercom_state%</size>";
 
-        [Description("Лобби. Количетсво игроков")]
-        public string PlayerCountText { get; set; } = "<color=#FFA600><i>{players}</i></color>";
+        [Description("Кастомный интерком. Надпись при вещании")]
+        public string TextIntercomeOnSpeak { get; set; } = "Идёт вещание";
 
-        [Description("Лобби. Верхння надпись, когда сервер на паузе")]
-        public string ServerPauseText { get; set; } = "Сервер в ожидании";
-
-        [Description("Лобби. Когда осталась секунда до начала раунда")]
-        public string SecondLeftText { get; set; } = "{seconds} секунда осталась";
-
-        [Description("Лобби. Когда осталось больше сеунды до начала раунда")]
-        public string SecondsLeftText { get; set; } = "{seconds} секунд осталось";
-
-        [Description("Лобби. Когда раунд начинается")]
-        public string RoundStartText { get; set; } = "Раунд начинается!";
-
-        [Description("Лобби. Когда на сервере один игрок")]
-        public string PlayerJoinText { get; set; } = "игрок на связи";
-
-        [Description("Лобби. Когда на сервере больше одного игрока")]
-        public string PlayersJoinText { get; set; } = "игроков на связи";
+        [Description("Кастомный интерком. Надпись при перезагрузке интеркома")]
+        public string TextIntercomeReload { get; set; } = "Перезагрузка";
     }
 }

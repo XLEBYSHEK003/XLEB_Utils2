@@ -24,29 +24,8 @@ namespace XLEB_Utils2
         [Description("Сделать бесконечное радио?")]
         public bool UnlimitedBattery { get; set; } = true;
 
-        [Description("Лобби. Включить лобби для ожидания игроков?")]
-        public bool LobbyEnable { get; set; } = true;
-
-        [Description("Лобби. Размер надписей")]
-        public int TopTextSize { get; set; } = 50;
-
-        [Description("Лобби. Размер нижнего текста")]
-        public int BottomTextSize { get; set; } = 40;
-
-        [Description("Лобби.Время (в секундах) между присоединением игрока к серверу и сменой им роли в лобби")]
-        public float SpawnDelay { get; private set; } = 0.4f;
-
-        [Description("Лобби. Роли для спавна")]
-        public List<RoleTypeId> RolesToChoose { get; set; } = new List<RoleTypeId>()
-        {
-            RoleTypeId.Tutorial
-        };
-
-        [Description("Лобби. Локации для спавна")]
-        public Dictionary<string, Vector3> SpawnLocations { get; set; } = new Dictionary<string, Vector3>()
-        {
-            ["Tower2"] = new Vector3(148.6951f, 1019.447f, -19.06371f)
-        };
+        [Description("Сделать кастомный интерком?")]
+        public bool CustomIntercomeEnable { get; set; } = true;
 
         [Description("Автоматические надписи:")]
         public List<string> ServerMessage { get; set; } = new List<string>
