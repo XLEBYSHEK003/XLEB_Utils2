@@ -7,10 +7,10 @@ using MEC;
 
 namespace XLEB_Utils2.IntercomManager
 {
-    public class CustomIntercome
+    public class CustomIntercom
     {
         private readonly Plugin _plugin;
-        public CustomIntercome(Plugin plugin) => _plugin = plugin;
+        public CustomIntercom(Plugin plugin) => _plugin = plugin;
         public CoroutineHandle CustomIntercomUsual;
         public CoroutineHandle CustomIntercomWarhead;
 
@@ -22,6 +22,12 @@ namespace XLEB_Utils2.IntercomManager
         public string IntercomeTextManagerWarheadAlarm(string text) 
         {
             return text;
+        }
+
+        public void ClearIntercomCoroutines() 
+        {
+            Timing.KillCoroutines(CustomIntercomUsual);
+            Timing.KillCoroutines(CustomIntercomWarhead);
         }
 
         public IEnumerator<float> СustomIntercom()

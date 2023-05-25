@@ -23,7 +23,7 @@ namespace XLEB_Utils2
         public PlayerEvents PlayerEvents;
         public ServerEvents ServerEvents;
         public WarheadEvents WarheadEvents;
-        public CustomIntercome CustomIntercom; 
+        public CustomIntercom CustomIntercom; 
         private Harmony harmony;
 
         public override void OnEnabled()
@@ -56,6 +56,7 @@ namespace XLEB_Utils2
             ServerEvents = new ServerEvents(this);
             PlayerEvents = new PlayerEvents(this);
             WarheadEvents = new WarheadEvents(this);
+            CustomIntercom = new CustomIntercom(this);
 
             Server.WaitingForPlayers += ServerEvents.OnWaitingForPlayers;
             Server.RoundStarted += ServerEvents.OnRoundStart;
@@ -101,6 +102,7 @@ namespace XLEB_Utils2
             PlayerEvents = null;
             ServerEvents = null;
             WarheadEvents = null;
+            CustomIntercom = null;
 
             base.OnDisabled();
         }

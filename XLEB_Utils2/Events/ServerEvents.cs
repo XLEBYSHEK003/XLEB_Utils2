@@ -24,7 +24,6 @@ namespace XLEB_Utils2.Events
         public List<CoroutineHandle> FastCoroutines = new List<CoroutineHandle>();
         public List<SchematicObject> schemaobject = new List<SchematicObject>();
         ScpSwapComponent swapComponent = new ScpSwapComponent();
-        CoroutineHandle CustomIntercomCoroutine;
         public WarheadEvents WarheadEvents;
         private SchematicObject LobbyRoom;
         public static bool OffFunctions;
@@ -45,13 +44,12 @@ namespace XLEB_Utils2.Events
         {
             ClearCoroutines();
             StartCoroutines();
+            UnSpawnScp();
+            GetTypesScpInRound();
 
-            if(LobbyRoom != null)
+            if (LobbyRoom != null)
                 LobbyRoom.Destroy();
 
-            UnSpawnScp();
-
-            GetTypesScpInRound();
             if (_plugin.Config.PublicLogWebhookEnable)
                 Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Начался новый раунд!\nВ раунде {Player.List.Count()} игроков.\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageStartRoundWebhook.RandomItem());
 
@@ -66,10 +64,7 @@ namespace XLEB_Utils2.Events
         {
             if (_plugin.Config.SquadProtectOnSpawn) 
             {
-                foreach (Player player in ev.Players)
-                {
-                    player.EnableEffect(EffectType.SpawnProtected, _plugin.Config.SpawnProtectTime, false);
-                }
+                FastCoroutines.Add(Timing.RunCoroutine(SpawnProtect(ev.Players)));
             }
         }
 
@@ -167,6 +162,10 @@ namespace XLEB_Utils2.Events
             {
                 Timing.KillCoroutines(_coroutine);
             }
+
+            if (_plugin.Config.CustomIntercomeEnable)
+                _plugin.CustomIntercom.ClearIntercomCoroutines();
+
             _plugin.WarheadEvents.ClearWarheadCoroutines();
             FastCoroutines.Clear();
         }
@@ -227,6 +226,20 @@ namespace XLEB_Utils2.Events
                 yield return Timing.WaitForSeconds(_plugin.Config.ServerMessageReTime);
 
                 Map.ShowHint("\n\n\n" + _plugin.Config.ServerMessage.RandomItem(), 5);
+            }
+        }
+
+        private IEnumerator<float> SpawnProtect(List<Player> players) 
+        {
+            foreach (Player player in players) 
+            {
+                player.IsGodModeEnabled = true;
+            }
+            yield return Timing.WaitForSeconds(_plugin.Config.SpawnProtectTime);
+
+            foreach (Player player in players)
+            {
+                player.IsGodModeEnabled = false;
             }
         }
 
