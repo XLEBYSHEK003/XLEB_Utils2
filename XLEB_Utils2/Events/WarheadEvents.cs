@@ -15,12 +15,24 @@ namespace XLEB_Utils2.Events
         {
             ClearWarheadCoroutines();
 
+            if (_plugin.Config.CustomIntercomeEnable)
+            {
+                Timing.KillCoroutines(_plugin.CustomIntercom.CustomIntercomUsual);
+                _plugin.CustomIntercom.CustomIntercomWarhead = Timing.RunCoroutine(_plugin.CustomIntercom.СustomIntercomWarhead());
+            }
+
             if (_plugin.Config.WarheadFlickerLightEnable)         
                 WarheadOffLights.Add(Timing.RunCoroutine(WarheadBlackout()));
         }
 
         public void OnWarheadStopping(StoppingEventArgs ev) 
         {
+            if (_plugin.Config.CustomIntercomeEnable)
+            {
+                Timing.KillCoroutines(_plugin.CustomIntercom.CustomIntercomWarhead);
+                _plugin.CustomIntercom.CustomIntercomUsual = Timing.RunCoroutine(_plugin.CustomIntercom.СustomIntercom());
+            }
+
             ClearWarheadCoroutines();
             Map.ShowHint("\n\n\n\n" + _plugin.Translation.TextOnBlackoutEnd);
         }

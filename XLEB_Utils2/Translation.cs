@@ -33,12 +33,15 @@ namespace XLEB_Utils2
         public string MessageWhenFixRespawn { get; set; } = "Все были переспавнены, для избежания проблем со спавном";
 
         [Description("Кастомный интерком. Надпись при ожидании. Желательно не трогать!")]
-        public string TextIntercomeWaitSpeak { get; set; } = "<size=70%>Сводка C.A.S.S.I.E</size>\n\n<size=35%>SCP на свободе: <color='red'>%alive_scp%</color>\nОбнаружено живых людей на территории: <color='green'>%alive_people%</color>\nДа рассчётного прибытия подмоги: <color='green'>%time_to_cum%</color>\n\n<color='blue'>Статус интеркома:</color>\n%intercom_state%</size>";
+        public string TextIntercomeWaitSpeak { get; set; } = "<size=70%>Сводка C.A.S.S.I.E</size>\n\n<size=35%>SCP на свободе: <color=#E81116>%alive_scp%</color>\nОбнаружено живых людей на территории: <color=#E81116>%alive_people%</color>\nTPS: <color=#E81116>%tps%</color>\n\n<color=#11C1E8>Статус интеркома:</color>\nГОТОВ</size>";
 
         [Description("Кастомный интерком. Надпись при вещании")]
-        public string TextIntercomeOnSpeak { get; set; } = "Идёт вещание";
+        public string TextIntercomeOnSpeak { get; set; } = "<size=70%>Сводка C.A.S.S.I.E</size>\n\n<size=35%>SCP на свободе: <color=#E81116>%alive_scp%</color>\nОбнаружено живых людей на территории: <color=#E81116>%alive_people%</color>\nTPS: <color=#E81116>%tps%</color>\n\n<color=#E81411>Статус интеркома:</color>\nЗАНЯТ</size>";
 
         [Description("Кастомный интерком. Надпись при перезагрузке интеркома")]
-        public string TextIntercomeReload { get; set; } = "Перезагрузка";
+        public string TextIntercomeReload { get; set; } = "<size=70%>Сводка C.A.S.S.I.E</size>\n\n<size=35%>SCP на свободе: <color=#E81116>%alive_scp%</color>\nОбнаружено живых людей на территории: <color=#E81116>%alive_people%</color>\nTPS: <color=#E81116>%tps%</color>\n\n<color=#E8DA11>Статус интеркома:</color>\nПЕРЕЗАГРУЗКА</size>";
+
+        [Description("Кастомный интерком. Надпись при угрозе детонации боеголовки")]
+        public string TextIntercomeWarhead { get; set; } = "<size=70%>Сводка C.A.S.S.I.E</size>\n\n<size=35%>SCP на свободе: <color=#E81116>%alive_scp%</color>\nОбнаружено живых людей на территории: <color=#E81116>%alive_people%</color>\nTPS: <color=#E81116>%tps%</color>\n\n<color=#E8DA11>Статус интеркома:</color>\nПЕРЕЗАГРУЗКА</size>";
     }
 }

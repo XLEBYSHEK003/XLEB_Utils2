@@ -2,6 +2,7 @@
 using Server = Exiled.Events.Handlers.Server;
 using Player = Exiled.Events.Handlers.Player;
 using Scp096 = Exiled.Events.Handlers.Scp096;
+using XLEB_Utils2.IntercomManager;
 using Exiled.Events.Handlers;
 using Exiled.API.Features;
 using XLEB_Utils2.Events;
@@ -22,6 +23,7 @@ namespace XLEB_Utils2
         public PlayerEvents PlayerEvents;
         public ServerEvents ServerEvents;
         public WarheadEvents WarheadEvents;
+        public CustomIntercome CustomIntercom; 
         private Harmony harmony;
 
         public override void OnEnabled()

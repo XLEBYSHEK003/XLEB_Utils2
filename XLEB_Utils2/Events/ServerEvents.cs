@@ -11,9 +11,7 @@ using Exiled.API.Enums;
 using System.Linq;
 using UnityEngine;
 using PlayerRoles;
-using PlayerRoles.Voice;
 using MEC;
-using Intercom = PlayerRoles.Voice.Intercom;
 
 namespace XLEB_Utils2.Events
 {
@@ -21,13 +19,15 @@ namespace XLEB_Utils2.Events
     {
         private readonly Plugin _plugin;
         public ServerEvents(Plugin plugin) => _plugin = plugin;
+
+        public List<CoroutineHandle> CoroutinesStartRound = new List<CoroutineHandle>();
+        public List<CoroutineHandle> FastCoroutines = new List<CoroutineHandle>();
+        public List<SchematicObject> schemaobject = new List<SchematicObject>();
+        ScpSwapComponent swapComponent = new ScpSwapComponent();
+        CoroutineHandle CustomIntercomCoroutine;
         public WarheadEvents WarheadEvents;
         private SchematicObject LobbyRoom;
         public static bool OffFunctions;
-        ScpSwapComponent swapComponent = new ScpSwapComponent();
-        public List<SchematicObject> schemaobject = new List<SchematicObject>();
-        public List<CoroutineHandle> CoroutinesStartRound = new List<CoroutineHandle>();
-        public List<CoroutineHandle> FastCoroutines = new List<CoroutineHandle>();
 
         public void OnWaitingForPlayers()
         {
@@ -87,7 +87,6 @@ namespace XLEB_Utils2.Events
         }
 
         #region Различные методы
-
         public static void UnMuteAllPlayers() 
         {
             foreach (Player player in Player.List)
@@ -153,7 +152,7 @@ namespace XLEB_Utils2.Events
             CoroutinesStartRound.Add(Timing.RunCoroutine(CheckPluginHealth()));
             
             if(_plugin.Config.CustomIntercomeEnable)
-                CoroutinesStartRound.Add(Timing.RunCoroutine(СustomIntercom()));
+                _plugin.CustomIntercom.CustomIntercomUsual = Timing.RunCoroutine(_plugin.CustomIntercom.СustomIntercom());
         }
 
         public void ClearCoroutines() 
@@ -175,14 +174,6 @@ namespace XLEB_Utils2.Events
         public static void SetOffFunctions(bool value)
         {
             OffFunctions = value;
-        }
-
-        public string IntercomeGetinfoRound() 
-        {
-            float num = (float)Respawn.NextTeamTime.Second;
-            string str = (num % 60f).ToString("00");
-            string str2 = Mathf.FloorToInt(num / 60f).ToString("00");
-            return _plugin.Translation.TextIntercomeWaitSpeak.Replace("%alive_scp%", Player.Get((Player p) => p.IsScp).Count().ToString()).Replace("%alive_people%", Player.Get((Player p) => p.IsHuman).Count().ToString()).Replace("%time_to_cum%", str2 + ":" + str);
         }
 
         public static void UnSpawnScp() 
@@ -238,26 +229,6 @@ namespace XLEB_Utils2.Events
                 Map.ShowHint("\n\n\n" + _plugin.Config.ServerMessage.RandomItem(), 5);
             }
         }
-
-       private IEnumerator<float> СustomIntercom()
-        {
-            for (; ;)
-            {
-                yield return Timing.WaitForSeconds(2f);
-
-                switch (Intercom.State) 
-                {
-                    case IntercomState.Ready: IntercomDisplay.TrySetDisplay(IntercomeGetinfoRound());
-                        break;
-                    case IntercomState.InUse:
-                        IntercomDisplay.TrySetDisplay(_plugin.Translation.TextIntercomeOnSpeak);
-                        break;
-                    case IntercomState.Cooldown:
-                        IntercomDisplay.TrySetDisplay(_plugin.Translation.TextIntercomeReload);
-                        break;
-                }
-            }
-       }
 
         private IEnumerator<float> ClearRagdoll()
         {
@@ -318,12 +289,9 @@ namespace XLEB_Utils2.Events
                    if (!_plugin.Config.NotClearItems.Contains(item.Info.ItemId))
                       item.Destroy();
                 }
-
             }
-
         }
         #endregion
     }
-
 }
 
