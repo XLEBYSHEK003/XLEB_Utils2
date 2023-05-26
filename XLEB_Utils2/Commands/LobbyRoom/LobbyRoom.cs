@@ -1,10 +1,10 @@
-﻿using CommandSystem;
-using Exiled.API.Features;
+﻿using MapEditorReborn.API.Features.Objects;
 using Exiled.Permissions.Extensions;
 using MapEditorReborn.API.Features;
-using MapEditorReborn.API.Features.Objects;
-using System;
+using Exiled.API.Features;
+using CommandSystem;
 using UnityEngine;
+using System;
 
 
 namespace XLEB_Utils2.Commands
@@ -55,6 +55,5 @@ namespace XLEB_Utils2.Commands
             response = $"Успешно! Команду вызвал {Player.Get(sender).Nickname}";
             return true;
         }
-
     }
 }

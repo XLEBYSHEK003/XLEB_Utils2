@@ -1,8 +1,8 @@
-﻿using CommandSystem;
+﻿using Exiled.Permissions.Extensions;
 using Exiled.API.Features;
-using Exiled.Permissions.Extensions;
-using System;
+using CommandSystem;
 using UnityEngine;
+using System;
 
 namespace XLEB_Utils2.Commands
 {

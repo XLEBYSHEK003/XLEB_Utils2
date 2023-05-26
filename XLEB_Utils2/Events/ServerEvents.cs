@@ -23,7 +23,9 @@ namespace XLEB_Utils2.Events
         public List<CoroutineHandle> CoroutinesStartRound = new List<CoroutineHandle>();
         public List<CoroutineHandle> FastCoroutines = new List<CoroutineHandle>();
         public List<SchematicObject> schemaobject = new List<SchematicObject>();
+
         ScpSwapComponent swapComponent = new ScpSwapComponent();
+
         public WarheadEvents WarheadEvents;
         private SchematicObject LobbyRoom;
         public static bool OffFunctions;

@@ -10,7 +10,6 @@ using Exiled.API.Enums;
 using HarmonyLib;
 using System;
 
-
 namespace XLEB_Utils2
 {
     public class Plugin : Plugin<Config, Translation>
@@ -18,12 +17,14 @@ namespace XLEB_Utils2
         public override string Prefix { get; } = "XLEB_Utils2";
         public override string Name { get; } = "XLEB_Utils2";
         public override string Author { get; } = "XLEB_YSHEK";
-        public override Version Version { get; } = new Version(3, 0, 0);
+        public override Version Version { get; } = new Version(4, 0, 0);
         public override PluginPriority Priority => PluginPriority.High;
+
         public PlayerEvents PlayerEvents;
         public ServerEvents ServerEvents;
         public WarheadEvents WarheadEvents;
-        public CustomIntercom CustomIntercom; 
+        public CustomIntercom CustomIntercom;
+
         private Harmony harmony;
 
         public override void OnEnabled()
@@ -63,14 +64,15 @@ namespace XLEB_Utils2
             Server.RespawningTeam += ServerEvents.OnRespawnTeam;
             Server.RoundEnded += ServerEvents.OnRoundEnded;
 
-            Scp096.AddingTarget += PlayerEvents.OnSCP095AddTarget;
             Player.UsingRadioBattery += PlayerEvents.OnUsingBattery;
             Player.Hurting += PlayerEvents.OnPlayerHurting;
             Player.ChangingRole += PlayerEvents.OnChangingRole;
             Player.Verified += PlayerEvents.OnPlayerVerified;
+            Player.Died += PlayerEvents.OnDied;
+
+            Scp096.AddingTarget += PlayerEvents.OnSCP095AddTarget;
             if (Config.PinkCandyDonateDisable)
                 Scp330.EatingScp330 += PlayerEvents.OnEatingCandy;
-            Player.Died += PlayerEvents.OnDied;
 
             Warhead.Starting += WarheadEvents.OnWarheadStart;
             Warhead.Detonated += WarheadEvents.OnWarheadDetonated;

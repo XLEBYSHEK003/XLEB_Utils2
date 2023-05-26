@@ -4,7 +4,6 @@ using Exiled.Events.EventArgs.Scp096;
 using Exiled.Events.EventArgs.Scp330;
 using PlayerRoles;
 using MEC;
-using Exiled.API.Features;
 
 namespace XLEB_Utils2.Events
 {

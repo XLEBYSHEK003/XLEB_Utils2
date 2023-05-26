@@ -3,7 +3,6 @@ using Exiled.API.Interfaces;
 using System.ComponentModel;
 using Exiled.API.Enums;
 using PlayerRoles;
-using UnityEngine;
 
 namespace XLEB_Utils2
 {

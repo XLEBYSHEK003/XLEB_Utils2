@@ -1,7 +1,7 @@
-﻿using CommandSystem;
-using Exiled.API.Features;
-using System;
+﻿using Exiled.API.Features;
+using CommandSystem;
 using PlayerRoles;
+using System;
 
 namespace XLEB_Utils2.Commands
 {

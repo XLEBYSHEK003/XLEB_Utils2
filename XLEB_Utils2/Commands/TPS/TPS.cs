@@ -1,10 +1,9 @@
-﻿using CommandSystem;
-using Exiled.API.Features;
+﻿using Exiled.API.Features;
+using CommandSystem;
 using System;
 
 namespace XLEB_Utils2.Commands
 {
-
     [CommandHandler(typeof(ClientCommandHandler))]
     public class TPS : ICommand
     {

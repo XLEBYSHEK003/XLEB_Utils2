@@ -1,9 +1,9 @@
-﻿using CommandSystem;
+﻿using Exiled.Permissions.Extensions;
 using Exiled.API.Features;
-using Exiled.Permissions.Extensions;
-using System;
+using CommandSystem;
 using PlayerRoles;
 using UnityEngine;
+using System;
 
 namespace XLEB_Utils2.Commands
 {
@@ -81,7 +81,8 @@ namespace XLEB_Utils2.Commands
 
                     response = $"Размер всех игроков был изменён на: {xval} {yval} {zval}";
                     return true;
-                default:
+
+                    default:
                     if (arguments.Count != 4)
                     {
                         response = "Использование: size (player id / name) (x) (y) (z)";

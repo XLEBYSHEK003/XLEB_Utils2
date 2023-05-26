@@ -1,5 +1,5 @@
-﻿using PlayerRoles;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using PlayerRoles;
 
 namespace XLEB_Utils2.Commands.ScpSwap
 {

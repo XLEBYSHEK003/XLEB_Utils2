@@ -1,12 +1,12 @@
-﻿using CommandSystem;
-using Exiled.API.Features;
-using Exiled.Permissions.Extensions;
-using System;
-using PlayerRoles;
-using MEC;
-using Exiled.API.Features.Items;
+﻿using Exiled.Permissions.Extensions;
 using System.Collections.Generic;
+using Exiled.API.Features.Items;
+using Exiled.API.Features;
+using CommandSystem;
+using PlayerRoles;
 using UnityEngine;
+using System;
+using MEC;
 
 namespace XLEB_Utils2.Commands
 {
@@ -48,7 +48,8 @@ namespace XLEB_Utils2.Commands
 
                     response = "Все взлетели в небо (Мы отправляемся в путешествие на нашем любимом космическом корабле).";
                     return true;
-                default:
+
+                    default:
                     Player pl = Player.Get(arguments.At(0));
                     if (pl == null)
                     {
@@ -94,5 +95,4 @@ namespace XLEB_Utils2.Commands
             }
         }
     }
-
 }

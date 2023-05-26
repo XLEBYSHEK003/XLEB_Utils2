@@ -1,8 +1,8 @@
-﻿using CommandSystem;
-using Exiled.API.Features;
-using Exiled.Permissions.Extensions;
-using System;
+﻿using Exiled.Permissions.Extensions;
 using CustomPlayerEffects;
+using Exiled.API.Features;
+using CommandSystem;
+using System;
 
 namespace XLEB_Utils2.Commands
 {
