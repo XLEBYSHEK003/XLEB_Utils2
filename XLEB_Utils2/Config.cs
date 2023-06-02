@@ -23,6 +23,12 @@ namespace XLEB_Utils2
         [Description("Сделать бесконечное радио?")]
         public bool UnlimitedBattery { get; set; } = true;
 
+        [Description("Доверить контроль донатеров плагину?")]
+        public bool DonateControlEnable { get; set; } = true;
+
+        [Description("Название базы данных с донатерами")]
+        public string DataBaseName { get; set; } = "Donator.db";
+
         [Description("Сделать кастомный интерком?")]
         public bool CustomIntercomeEnable { get; set; } = true;
 

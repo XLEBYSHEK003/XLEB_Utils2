@@ -4,6 +4,7 @@ using Player = Exiled.Events.Handlers.Player;
 using Scp096 = Exiled.Events.Handlers.Scp096;
 using XLEB_Utils2.IntercomManager;
 using Exiled.Events.Handlers;
+using XLEB_Utils2.DonateControl;
 using Exiled.API.Features;
 using XLEB_Utils2.Events;
 using Exiled.API.Enums;
@@ -17,13 +18,14 @@ namespace XLEB_Utils2
         public override string Prefix { get; } = "XLEB_Utils2";
         public override string Name { get; } = "XLEB_Utils2";
         public override string Author { get; } = "XLEB_YSHEK";
-        public override Version Version { get; } = new Version(4, 0, 0);
+        public override Version Version { get; } = new Version(5, 0, 0);
         public override PluginPriority Priority => PluginPriority.High;
 
         public PlayerEvents PlayerEvents;
         public ServerEvents ServerEvents;
         public WarheadEvents WarheadEvents;
         public CustomIntercom CustomIntercom;
+        public DonateControlEventHandler DonateControlEventHandler;
 
         private Harmony harmony;
 
@@ -58,6 +60,7 @@ namespace XLEB_Utils2
             PlayerEvents = new PlayerEvents(this);
             WarheadEvents = new WarheadEvents(this);
             CustomIntercom = new CustomIntercom(this);
+            DonateControlEventHandler = new DonateControlEventHandler(this);
 
             Server.WaitingForPlayers += ServerEvents.OnWaitingForPlayers;
             Server.RoundStarted += ServerEvents.OnRoundStart;
@@ -68,6 +71,7 @@ namespace XLEB_Utils2
             Player.Hurting += PlayerEvents.OnPlayerHurting;
             Player.ChangingRole += PlayerEvents.OnChangingRole;
             Player.Verified += PlayerEvents.OnPlayerVerified;
+            Player.Verified += DonateControlEventHandler.OnPlayerVerified;
             Player.Died += PlayerEvents.OnDied;
 
             Scp096.AddingTarget += PlayerEvents.OnSCP095AddTarget;
@@ -105,6 +109,7 @@ namespace XLEB_Utils2
             ServerEvents = null;
             WarheadEvents = null;
             CustomIntercom = null;
+            DonateControlEventHandler = null;
 
             base.OnDisabled();
         }

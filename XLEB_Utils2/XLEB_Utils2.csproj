@@ -62,6 +62,8 @@
     <Compile Include="Commands\Size\Size.cs" />
     <Compile Include="Commands\TPS\TPS.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="DonateControl\DonateControlEventHandler.cs" />
+    <Compile Include="DonateControl\DonateUser.cs" />
     <Compile Include="IntercomManager\CustomIntercom.cs" />
     <Compile Include="Events\PlayerEvents.cs" />
     <Compile Include="Events\ServerEvents.cs" />
@@ -116,6 +118,9 @@
     <Reference Include="Exiled.Updater, Version=3.1.2.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.Updater.dll</HintPath>
+    </Reference>
+    <Reference Include="LiteDB">
+      <HintPath>..\..\..\..\Downloads\LiteDB.dll</HintPath>
     </Reference>
     <Reference Include="MapEditorReborn %281%29">
       <HintPath>..\..\..\..\Downloads\MapEditorReborn (1).dll</HintPath>
