@@ -119,9 +119,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Desktop\EXILED 6\Exiled.Updater.dll</HintPath>
     </Reference>
-    <Reference Include="LiteDB">
-      <HintPath>..\..\..\..\Downloads\LiteDB.dll</HintPath>
-    </Reference>
     <Reference Include="MapEditorReborn %281%29">
       <HintPath>..\..\..\..\Downloads\MapEditorReborn (1).dll</HintPath>
     </Reference>
