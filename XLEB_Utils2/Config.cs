@@ -23,11 +23,8 @@ namespace XLEB_Utils2
         [Description("Сделать бесконечное радио?")]
         public bool UnlimitedBattery { get; set; } = true;
 
-        [Description("Доверить контроль донатеров плагину?")]
-        public bool DonateControlEnable { get; set; } = true;
-
-        [Description("Название базы данных с донатерами")]
-        public string DataBaseName { get; set; } = "Donator.db";
+        [Description("Включить вырезание случайных SCP?")]
+        public bool CutScpOnRoundStart { get; set; } = false;
 
         [Description("Сделать кастомный интерком?")]
         public bool CustomIntercomeEnable { get; set; } = true;
@@ -129,6 +126,12 @@ namespace XLEB_Utils2
             [LeadingTeam.FacilityForces] = "https://i.ytimg.com/vi/M5xD4pnavtg/maxresdefault.jpg",
             [LeadingTeam.Draw] = "https://img2.joyreactor.cc/pics/post/full/scp-2273-%D0%9A%D0%BB%D0%B0%D1%81%D1%81-%D0%95%D0%B2%D0%BA%D0%BB%D0%B8%D0%B4-%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B-SCP-The-SCP-Foundation-5554142.jpeg"
         };
+
+        [Description("Ссылка на вебхук для оповещения сервера о начале ивента")]
+        public string EventWebhookNotificationURL { get; set; } = "https://";
+
+        [Description("ID роли для оповещения")]
+        public string EventRoleId { get; set; } = "1234567890";
 
         [Description("Включить исправление спавна при старте раунда?")]
         public bool FixSpawnOnStartRound { get; set; } = true;

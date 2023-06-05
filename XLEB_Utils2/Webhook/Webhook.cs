@@ -7,10 +7,11 @@ namespace XLEB_Utils2.Webhook
 {
     public class Webhook
     {
-        public static void sendDiscordWebhook(string URL, string content, string title, string avatarurl, string imageurl)
+        public static void sendDiscordWebhook(string URL, string text, string title, string avatarurl, string imageurl, string content)
         {
             var message = new
             {
+                content = content,
                 //  avatar_url = avatarurl,
                 embeds = new[] 
                 { 
@@ -18,7 +19,7 @@ namespace XLEB_Utils2.Webhook
                     {
                         color = 0x00ff00,
                         title = title,
-                        description = content,
+                        description = text,
                         image = new {
                         url = imageurl}
                     }

@@ -50,6 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\Ball\Ball.cs" />
+    <Compile Include="Commands\EventNotification\EventNotification.cs" />
     <Compile Include="Commands\EventRun\EventRun.cs" />
     <Compile Include="Commands\DropSize\DropSize.cs" />
     <Compile Include="Commands\Ghost\Ghost.cs" />
@@ -62,8 +63,6 @@
     <Compile Include="Commands\Size\Size.cs" />
     <Compile Include="Commands\TPS\TPS.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="DonateControl\DonateControlEventHandler.cs" />
-    <Compile Include="DonateControl\DonateUser.cs" />
     <Compile Include="IntercomManager\CustomIntercom.cs" />
     <Compile Include="Events\PlayerEvents.cs" />
     <Compile Include="Events\ServerEvents.cs" />

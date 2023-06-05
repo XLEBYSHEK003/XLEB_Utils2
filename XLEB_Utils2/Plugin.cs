@@ -4,7 +4,7 @@ using Player = Exiled.Events.Handlers.Player;
 using Scp096 = Exiled.Events.Handlers.Scp096;
 using XLEB_Utils2.IntercomManager;
 using Exiled.Events.Handlers;
-using XLEB_Utils2.DonateControl;
+using XLEB_Utils2.Commands;
 using Exiled.API.Features;
 using XLEB_Utils2.Events;
 using Exiled.API.Enums;
@@ -25,8 +25,8 @@ namespace XLEB_Utils2
         public ServerEvents ServerEvents;
         public WarheadEvents WarheadEvents;
         public CustomIntercom CustomIntercom;
-        public DonateControlEventHandler DonateControlEventHandler;
 
+        public static Plugin Singleton;
         private Harmony harmony;
 
         public override void OnEnabled()
@@ -60,7 +60,8 @@ namespace XLEB_Utils2
             PlayerEvents = new PlayerEvents(this);
             WarheadEvents = new WarheadEvents(this);
             CustomIntercom = new CustomIntercom(this);
-            DonateControlEventHandler = new DonateControlEventHandler(this);
+
+            Singleton = this;
 
             Server.WaitingForPlayers += ServerEvents.OnWaitingForPlayers;
             Server.RoundStarted += ServerEvents.OnRoundStart;
@@ -71,7 +72,6 @@ namespace XLEB_Utils2
             Player.Hurting += PlayerEvents.OnPlayerHurting;
             Player.ChangingRole += PlayerEvents.OnChangingRole;
             Player.Verified += PlayerEvents.OnPlayerVerified;
-            Player.Verified += DonateControlEventHandler.OnPlayerVerified;
             Player.Died += PlayerEvents.OnDied;
 
             Scp096.AddingTarget += PlayerEvents.OnSCP095AddTarget;
@@ -109,7 +109,8 @@ namespace XLEB_Utils2
             ServerEvents = null;
             WarheadEvents = null;
             CustomIntercom = null;
-            DonateControlEventHandler = null;
+
+            Singleton = null;
 
             base.OnDisabled();
         }

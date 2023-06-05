@@ -46,14 +46,17 @@ namespace XLEB_Utils2.Events
         {
             ClearCoroutines();
             StartCoroutines();
-            UnSpawnScp();
+
+            if(_plugin.Config.CutScpOnRoundStart)
+                UnSpawnScp();
+
             GetTypesScpInRound();
 
             if (LobbyRoom != null)
                 LobbyRoom.Destroy();
 
             if (_plugin.Config.PublicLogWebhookEnable)
-                Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Начался новый раунд!\nВ раунде {Player.List.Count()} игроков.\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageStartRoundWebhook.RandomItem());
+                Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Начался новый раунд!\nВ раунде {Player.List.Count()} игроков.\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageStartRoundWebhook.RandomItem(), null);
 
             if (_plugin.Config.SchematicList.Count > 0)
                 SpawnBuildings();
@@ -77,7 +80,7 @@ namespace XLEB_Utils2.Events
             ClearCoroutines();
 
             if (_plugin.Config.PublicLogWebhookEnable && _plugin.Config.ImageEndRoundWebhook.ContainsKey(ev.LeadingTeam))
-                Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Раунд закончился!\nВ раунде {Player.List.Count()} игроков.\nПобедили: {GetWinTeam(ev.LeadingTeam)}\nВремя раунда: {(int)Round.ElapsedTime.TotalMinutes}:{(int)Round.ElapsedTime.TotalSeconds}\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageEndRoundWebhook[ev.LeadingTeam]);
+                Webhook.Webhook.sendDiscordWebhook(_plugin.Config.WebhookUrl, $"Раунд закончился!\nВ раунде {Player.List.Count()} игроков.\nПобедили: {GetWinTeam(ev.LeadingTeam)}\nВремя раунда: {(int)Round.ElapsedTime.TotalMinutes}:{(int)Round.ElapsedTime.TotalSeconds}\nTPS: {((int)Server.Tps)}", "Информация", "", _plugin.Config.ImageEndRoundWebhook[ev.LeadingTeam], null);
 
             if (_plugin.Config.FriendlyFireEndRoundEnable && !Server.FriendlyFire)
                 Server.FriendlyFire = true;
